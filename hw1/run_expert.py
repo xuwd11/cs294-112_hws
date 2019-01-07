@@ -11,15 +11,14 @@ Author of this script and included expert policies: Jonathan Ho (hoj@openai.com)
 
 import os
 import json
+import logging
+import time
 import pickle
 import tensorflow as tf
 import numpy as np
 import tf_util
 import gym
 import load_policy
-import logging
-import time
-import json
 
 tf.logging.set_verbosity(tf.logging.ERROR)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
