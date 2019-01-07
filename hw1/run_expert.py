@@ -10,12 +10,19 @@ Author of this script and included expert policies: Jonathan Ho (hoj@openai.com)
 """
 
 import os
+import json
 import pickle
 import tensorflow as tf
 import numpy as np
 import tf_util
 import gym
 import load_policy
+import logging
+import time
+import json
+
+tf.logging.set_verbosity(tf.logging.ERROR)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 def main():
     import argparse
@@ -30,8 +37,13 @@ def main():
 
     print('loading and building expert policy')
     policy_fn = load_policy.load_policy(args.expert_policy_file)
-    print('loaded and built')
-
+    print('loaded atraintnd built')
+    
+    #logging.basicConfig(level=logging.INFO)
+    save_name = args.envname + '_' + time.strftime('%Y-%m-%d-%H-%M-%S')
+    #file_handler = logging.FileHandler(os.path.join('expert_data', save_name + '.txt'))
+    #logging.getLogger().addHandler(file_handler)
+    
     with tf.Session():
         tf_util.initialize()
 
@@ -62,10 +74,15 @@ def main():
                     break
             returns.append(totalr)
 
-        print('returns', returns)
-        print('mean return', np.mean(returns))
-        print('std of return', np.std(returns))
-
+        print('returns {}'.format(returns))
+        print('mean return {}'.format(np.mean(returns)))
+        print('std of return {}'.format(np.std(returns)))
+        
+        with open(os.path.join('expert_data', save_name + '.json'), 'w') as f:
+            json.dump({'returns': returns, 
+                       'mean_return': np.mean(returns),
+                       'std_return': np.std(returns)}, f)
+        
         expert_data = {'observations': np.array(observations),
                        'actions': np.array(actions)}
 
