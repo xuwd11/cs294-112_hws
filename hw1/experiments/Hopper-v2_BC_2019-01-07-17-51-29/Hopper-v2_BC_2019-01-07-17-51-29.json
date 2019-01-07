@@ -1,1 +1,0 @@
-{"data_name": "Hopper-v2", "gpu": 0, "mode": "all", "reload": "no", "save_name": "Hopper-v2_BC_2019-01-07-17-51-29", "num_epochs": 0, "learning_rate": 0.001, "max_gradient_norm": 10.0, "dropout": 0.1, "batch_size": 256, "hidden_dims": [100, 100, 100], "input_dim": 11, "output_dim": 3}
