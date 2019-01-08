@@ -1,5 +1,1 @@
 *.pkl
-experiments/*
-!*.json
-!*.txt
-!*.png
