@@ -105,8 +105,17 @@ class Model:
     
     def add_loss(self):
         with tf.variable_scope('loss'):
-            if self.FLAGS['loss'] == 'l2_loss':
-                self.loss = tf.reduce_mean(tf.reduce_sum((self.y - self.out) ** 2, axis=-1))
+            if self.FLAGS['loss'].strip().lower() == 'l2':
+                self.loss = tf.reduce_mean(0.5 * tf.reduce_sum((self.y - self.out) ** 2, axis=-1))
+            elif self.FLAGS['loss'].strip().lower() == 'smooth_l1':
+                thres = 1.0
+                l1 = tf.abs(self.y - self.out)
+                self.loss = tf.reduce_mean(tf.reduce_sum(
+                    tf.where(l1 < thres, 0.5 * l1 ** 2, thres * (l1 - 0.5 * thres)),
+                    axis=-1
+                ))
+            else:
+                raise NotImplementedError
             tf.summary.scalar('loss', self.loss)
     
     

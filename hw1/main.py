@@ -31,7 +31,7 @@ parser.add_argument('--mode', type=str, default='all', help='Available modes: al
 parser.add_argument('--reload', type=str, default='no')
 parser.add_argument('--save_name', type=str)
 parser.add_argument('--hidden_dims', nargs='+', type=int, default=[100, 100, 100])
-parser.add_argument('--loss', type=str, default='l2_loss')
+parser.add_argument('--loss', type=str, default='l2')
 
 
 # Hyperparameters for the model
