@@ -39,7 +39,7 @@ def main():
     print('loaded atraintnd built')
     
     #logging.basicConfig(level=logging.INFO)
-    save_name = args.envname + '_' + time.strftime('%Y-%m-%d-%H-%M-%S')
+    save_name = args.envname # + '_' + time.strftime('%Y-%m-%d-%H-%M-%S')
     #file_handler = logging.FileHandler(os.path.join('expert_data', save_name + '.txt'))
     #logging.getLogger().addHandler(file_handler)
     

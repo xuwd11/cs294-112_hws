@@ -1,10 +1,13 @@
 import os
 import sys
+import json
 import logging
 import time
 import gym
 import numpy as np
 import tensorflow as tf
+import matplotlib
+import matplotlib.pyplot as plt
 
 import tf_util
 
@@ -30,13 +33,16 @@ def write_summary(value, tag, summary_writer, global_step):
 class Model:
     '''Top-level model'''
     
-    def __init__(self, FLAGS, algorithm='behavioral_cloning'):
+    def __init__(self, FLAGS, algorithm, expert_returns=None):
         print('Initializing the model...')
+        if not algorithm.strip().lower() in ['behavioral_cloning', 'dagger']:
+            raise NotImplementedError('Algorithm {} not implemented.'.format(algorithm))
         self.FLAGS = FLAGS
         self.algorithm = algorithm
+        self.expert_returns = expert_returns
         
         with tf.variable_scope(
-            'model', 
+            self.algorithm, 
             initializer=tf.keras.initializers.he_normal(), 
             regularizer=tf.contrib.layers.l2_regularizer(scale=3e-7), 
             reuse=tf.AUTO_REUSE
@@ -161,6 +167,8 @@ class Model:
         num_params = sum(map(lambda t: np.prod(tf.shape(t.value()).eval()), params))
         logging.info('Number of params: {}'.format(num_params))
         
+        self.data_size = len(data_train['observations']) + len(data_val['observations'])
+        
         exp_loss = None
         
         checkpoint_path = os.path.join(curr_dir, 'm.ckpt')
@@ -217,4 +225,53 @@ class Model:
         self.saver.save(session, checkpoint_path, global_step=global_step)
         
         logging.info('best: mean return {}, std of return {}'.format(self.best_return, self.best_return_std))
-        sys.stdout.flush()            
+        sys.stdout.flush()
+        self.save_results(curr_dir)
+        
+    
+    def save_results(self, curr_dir):
+        eval_every, num_epochs = self.FLAGS['eval_every'], self.FLAGS['num_epochs']
+        with open(os.path.join(
+            curr_dir, 
+            self.FLAGS['save_name'] + '_' + self.algorithm + '.json'), 'w') as f:
+            json.dump(
+                {'data_size':self.data_size,
+                 'epochs':list(range(eval_every, num_epochs + 1, eval_every)),
+                 'returns':self.returns,
+                 'best_return':self.best_return, 
+                 'best_return_std':self.best_return_std
+                }, f
+            )
+        color = {'behavioral_cloning':'b', 'dagger':'r'}
+        plt.plot(
+            list(range(eval_every, num_epochs + 1, eval_every)),
+            np.mean(self.returns, axis=-1),
+            color=color[self.algorithm],
+            label=self.algorithm
+        )
+        plt.errorbar(
+            list(range(eval_every, num_epochs + 1, eval_every)),
+            np.mean(self.returns, axis=-1), 
+            np.std(self.returns, axis=-1),
+            fmt='.',
+            color=color[self.algorithm]
+        );
+        if self.expert_returns is not None:
+            plt.fill_between(
+                list(range(eval_every, num_epochs + 1, eval_every)),
+                self.expert_returns['mean_return'] - self.expert_returns['std_return'],
+                self.expert_returns['mean_return'] + self.expert_returns['std_return'],
+                label='expert',
+                color='g'
+            )        
+        plt.xlabel('epoch');
+        plt.ylabel('return');
+        plt.legend(loc='best');
+        plt.title(self.FLAGS['env_name']);
+        plt.tight_layout();
+        plt.savefig(
+            os.path.join(curr_dir, self.FLAGS['save_name'] + '_' + self.algorithm + '.png'),
+            bbox_inches='tight',
+            transparent=True,
+            pad_inches=0.1
+        );
