@@ -83,7 +83,7 @@ def main():
                        'std_return': np.std(returns)}, f)
         
         expert_data = {'observations': np.array(observations),
-                       'actions': np.array(actions)}
+                       'actions': np.squeeze(np.array(actions), axis=1)}
 
         with open(os.path.join('expert_data', args.envname + '.pkl'), 'wb') as f:
             pickle.dump(expert_data, f, pickle.HIGHEST_PROTOCOL)

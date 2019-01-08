@@ -14,6 +14,22 @@ import tf_util
 logging.basicConfig(level=logging.INFO)
 
 
+def train_val_split(data, train_size=0.9):
+    n = data['observations'].shape[0]
+    indices = np.random.permutation(n)
+    train_id, val_id = indices[:int(n * train_size)], indices[int(n * train_size):]
+    data_train = {'observations': data['observations'][train_id], 'actions': data['actions'][train_id]}
+    data_val = {'observations': data['observations'][val_id], 'actions': data['actions'][val_id]}
+    return data_train, data_val
+
+
+def merge_data(data1, data2):
+    return {
+        'observations':np.concatenate((data1['observations'], data2['observations']), axis=0),
+        'actions':np.concatenate((data1['actions'], data2['actions']), axis=0)
+    }
+
+
 def get_batch_generator(data, batch_size, shuffle=False):
     n = data['observations'].shape[0]
     if shuffle:
@@ -33,16 +49,21 @@ def write_summary(value, tag, summary_writer, global_step):
 class Model:
     '''Top-level model'''
     
-    def __init__(self, FLAGS, algorithm, expert_returns=None):
+    def __init__(self, FLAGS, algorithm, expert_returns=None, expert_policy_fn=None):
         print('Initializing the model...')
         if not algorithm.strip().lower() in ['behavioral_cloning', 'dagger']:
             raise NotImplementedError('Algorithm {} not implemented.'.format(algorithm))
         self.FLAGS = FLAGS
-        self.algorithm = algorithm
+        self.algorithm = algorithm.strip().lower()
         self.expert_returns = expert_returns
+        self.expert_policy_fn = expert_policy_fn
+        if self.algorithm == 'dagger' and self.expert_policy_fn is None:
+            raise ValueError('No expert policy found.')
+        
+        self.scope = self.algorithm + '_' + time.strftime('%Y-%m-%d-%H-%M-%S')
         
         with tf.variable_scope(
-            self.algorithm, 
+            self.scope, 
             initializer=tf.keras.initializers.he_normal(), 
             regularizer=tf.contrib.layers.l2_regularizer(scale=3e-7), 
             reuse=tf.AUTO_REUSE
@@ -69,7 +90,7 @@ class Model:
     
     def add_placeholders(self):
         self.x = tf.placeholder(tf.float32, shape=[None, self.FLAGS['input_dim']])
-        self.y = tf.placeholder(tf.float32, shape=[None, 1, self.FLAGS['output_dim']])
+        self.y = tf.placeholder(tf.float32, shape=[None, self.FLAGS['output_dim']])
         
         self.keep_prob = tf.placeholder_with_default(1.0, shape=())
         
@@ -79,8 +100,7 @@ class Model:
         for i in range(1, len(self.FLAGS['hidden_dims'])):
             out = tf.contrib.layers.fully_connected(out, self.FLAGS['hidden_dims'][i], tf.nn.relu, scope='h{}'.format(i))
             out = tf.nn.dropout(out, self.keep_prob)
-        out = tf.contrib.layers.fully_connected(out, self.FLAGS['output_dim'], activation_fn=None, scope='final')
-        self.out = tf.expand_dims(out, axis=1)
+        self.out = tf.contrib.layers.fully_connected(out, self.FLAGS['output_dim'], activation_fn=None, scope='final')
     
     
     def add_loss(self):
@@ -156,7 +176,15 @@ class Model:
                     break
             returns.append(total)
         return returns, observations
-        
+    
+    
+    def update_expert_data(self, observations, data_train, data_val):
+        d1, d2 = train_val_split({
+            'observations':observations,
+            'actions':self.expert_policy_fn(observations)
+        })
+        return merge_data(data_train, d1), merge_data(data_val, d2)
+    
     
     def train(self, session, curr_dir, bestmodel_dir, data_train, data_val):
         env = gym.make(self.FLAGS['env_name'])
@@ -218,6 +246,10 @@ class Model:
                 logging.info('Saving to {} ...'.format(bestmodel_ckpt_path))
                 self.bestmodel_saver.save(session, bestmodel_ckpt_path, global_step=global_step)
             
+            if self.algorithm == 'dagger':
+                logging.info('updating expert data ...')
+                data_train, data_val = self.update_expert_data(np.array(curr_observations), data_train, data_val)
+            
             epoch_toc = time.time()
             logging.info('End of epoch {}. Time for epoch: {}'.format(epoch, epoch_toc - epoch_tic))
         
@@ -233,7 +265,7 @@ class Model:
         eval_every, num_epochs = self.FLAGS['eval_every'], self.FLAGS['num_epochs']
         with open(os.path.join(
             curr_dir, 
-            self.FLAGS['save_name'] + '_' + self.algorithm + '.json'), 'w') as f:
+            self.FLAGS['save_name'] + '_results.json'), 'w') as f:
             json.dump(
                 {'data_size':self.data_size,
                  'epochs':list(range(eval_every, num_epochs + 1, eval_every)),

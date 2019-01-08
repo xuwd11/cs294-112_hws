@@ -8,23 +8,26 @@ import tensorflow as tf
 import gym
 import argparse
 
-from model import Model
+import load_policy
+
+from model import Model, train_val_split
 
 tf.logging.set_verbosity(tf.logging.ERROR)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 logging.basicConfig(level=logging.INFO)
 
-DEFAULT_DATA_DIR = os.path.join('.', 'expert_data')
+DATA_DIR = os.path.join('.', 'expert_data')
+EXPERT_POLICY_DIR = os.path.join('.', 'experts')
 EXPERIMENTS_DIR = os.path.join('.', 'experiments')
 
 # High-level options
 parser = argparse.ArgumentParser()
 parser.add_argument('env_name', type=str)
 parser.add_argument('--algorithm', type=str, default='behavioral_cloning', 
-                    help='Available algorithms: behavioral_cloning / dagger / all')
+                    help='Available algorithms: behavioral_cloning / dagger')
 parser.add_argument('--gpu', type=int, default=0, help='Which gpu to use')
-parser.add_argument('--mode', type=str, default='all', help='Available modes: all / train / test')
+parser.add_argument('--mode', type=str, default='all', help='Available modes: all / test')
 parser.add_argument('--reload', type=str, default='no')
 parser.add_argument('--save_name', type=str)
 parser.add_argument('--hidden_dims', nargs='+', type=int, default=[100, 100, 100])
@@ -32,7 +35,7 @@ parser.add_argument('--loss', type=str, default='l2_loss')
 
 
 # Hyperparameters for the model
-parser.add_argument('--num_epochs', type=int, default=20,
+parser.add_argument('--num_epochs', type=int, default=100,
                     help='Number of epochs to train. 0 means train indefinitely')
 parser.add_argument('--learning_rate', type=float, default=0.001)
 parser.add_argument('--max_gradient_norm', type=float, default=10.0,
@@ -51,15 +54,6 @@ parser.add_argument('--num_rollouts', type=int, default=10,
 
 FLAGS = vars(parser.parse_args())
 os.environ["CUDA_VISIBLE_DEVICES"] = str(FLAGS['gpu'])
-
-
-def train_val_split(data, train_size=0.9):
-    n = data['observations'].shape[0]
-    indices = np.random.permutation(n)
-    train_id, val_id = indices[:int(n * train_size)], indices[int(n * train_size):]
-    data_train = {'observations': data['observations'][train_id], 'actions': data['actions'][train_id]}
-    data_val = {'observations': data['observations'][val_id], 'actions': data['actions'][val_id]}
-    return data_train, data_val
 
 
 def initialize_model(session, model, curr_dir, expect_exists):
@@ -86,7 +80,10 @@ def train(session, model, curr_dir, data_train, data_val):
     
     file_handler = logging.FileHandler(os.path.join(curr_dir, 'log.txt'))
     logging.getLogger().addHandler(file_handler)
-            
+    
+    with open(os.path.join(curr_dir, FLAGS['save_name'] + '.json'), 'w') as f:
+        json.dump(FLAGS, f)
+    
     if not os.path.exists(bestmodel_dir):
         os.makedirs(bestmodel_dir)
     
@@ -115,31 +112,41 @@ def main():
     if not os.path.exists(curr_dir):
         os.makedirs(curr_dir)
     
-    with open(os.path.join(DEFAULT_DATA_DIR, FLAGS['env_name'] + '.pkl'), 'rb') as f:
+    with open(os.path.join(DATA_DIR, FLAGS['env_name'] + '.pkl'), 'rb') as f:
         data = pickle.load(f)
     FLAGS['input_dim'] = data['observations'].shape[-1]
     FLAGS['output_dim'] = data['actions'].shape[-1]
     
-    with open(os.path.join(DEFAULT_DATA_DIR, FLAGS['env_name'] + '.json'), 'r') as f:
+    with open(os.path.join(DATA_DIR, FLAGS['env_name'] + '.json'), 'r') as f:
         expert_returns = json.load(f)
     
+    expert_policy_fn = load_policy.load_policy(
+        os.path.join(EXPERT_POLICY_DIR, FLAGS['env_name'] + '.pkl')
+    )        
+    
     data_train, data_val = train_val_split(data)
-
-    model1 = Model(FLAGS, algorithm='behavioral_cloning', expert_returns=expert_returns)
-    model2 = Model(FLAGS, algorithm='dagger', expert_returns=expert_returns)
     
     config=tf.ConfigProto()
     config.gpu_options.allow_growth = True
-    
-    if FLAGS['mode'] != 'test':
-        with open(os.path.join(curr_dir, FLAGS['save_name'] + '.json'), 'w') as f:
-            json.dump(FLAGS, f)
+        
+    if FLAGS['mode'] in ['all']:
         if FLAGS['algorithm'] == 'behavioral_cloning':
+            model = Model(
+                FLAGS, 
+                algorithm='behavioral_cloning', 
+                expert_returns=expert_returns
+            )
             with tf.Session(config=config) as sess:
-                train(sess, model1, curr_dir, data_train, data_val)
+                train(sess, model, curr_dir, data_train, data_val)
         elif FLAGS['algorithm'] == 'dagger':
+            model = Model(
+                FLAGS, 
+                algorithm='dagger', 
+                expert_returns=expert_returns,
+                expert_policy_fn=expert_policy_fn
+            )
             with tf.Session(config=config) as sess:
-                train(sess, model2, curr_dir, data_train, data_val)
+                train(sess, model, curr_dir, data_train, data_val)
 
             
 if __name__ == '__main__':
