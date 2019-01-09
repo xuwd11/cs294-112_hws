@@ -1,0 +1,71 @@
+Number of params: 59617
+Beginning training loop...
+epoch 5, iter 355, loss 1.99219, smoothed loss 8.49964, grad norm 14.57933, param norm 19.87234, val loss 1.48302
+epoch 5, iter 355, mean return 144.6500463909881, std of return 5.521601608762583
+Saving to ./experiments/Humanoid-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 5. Time for epoch: 0.44310450553894043
+epoch 10, iter 710, loss 1.42294, smoothed loss 1.70104, grad norm 13.36071, param norm 20.96184, val loss 1.19240
+epoch 10, iter 710, mean return 333.0351263231449, std of return 125.79098734133625
+Saving to ./experiments/Humanoid-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 10. Time for epoch: 0.7983026504516602
+epoch 15, iter 1065, loss 1.24937, smoothed loss 1.29650, grad norm 13.63805, param norm 22.40881, val loss 1.04952
+epoch 15, iter 1065, mean return 291.61072673714943, std of return 16.906474022652883
+End of epoch 15. Time for epoch: 0.6630256175994873
+epoch 20, iter 1420, loss 1.12568, smoothed loss 1.16561, grad norm 9.96207, param norm 23.98033, val loss 0.90447
+epoch 20, iter 1420, mean return 377.6652786388978, std of return 131.54765655698372
+Saving to ./experiments/Humanoid-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 20. Time for epoch: 0.8530423641204834
+epoch 25, iter 1775, loss 0.99207, smoothed loss 1.07296, grad norm 12.45108, param norm 25.64215, val loss 0.85718
+epoch 25, iter 1775, mean return 337.6481280193574, std of return 44.60774041926081
+End of epoch 25. Time for epoch: 0.7928235530853271
+epoch 30, iter 2130, loss 1.04162, smoothed loss 1.00813, grad norm 11.86188, param norm 27.34285, val loss 0.80305
+epoch 30, iter 2130, mean return 448.20828183635, std of return 143.51289799156032
+Saving to ./experiments/Humanoid-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 30. Time for epoch: 0.9548435211181641
+epoch 35, iter 2485, loss 0.84452, smoothed loss 0.94875, grad norm 7.99558, param norm 29.08314, val loss 0.75411
+epoch 35, iter 2485, mean return 434.1095289741164, std of return 134.75322701839417
+End of epoch 35. Time for epoch: 0.9359030723571777
+epoch 40, iter 2840, loss 0.92317, smoothed loss 0.90805, grad norm 9.15720, param norm 30.81553, val loss 0.69726
+epoch 40, iter 2840, mean return 415.9251928820887, std of return 98.0815284906531
+End of epoch 40. Time for epoch: 0.9277584552764893
+epoch 45, iter 3195, loss 0.81684, smoothed loss 0.87027, grad norm 13.77517, param norm 32.54542, val loss 0.68531
+epoch 45, iter 3195, mean return 589.974623172098, std of return 156.42638787252238
+Saving to ./experiments/Humanoid-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 45. Time for epoch: 1.1541175842285156
+epoch 50, iter 3550, loss 0.77688, smoothed loss 0.84153, grad norm 10.34111, param norm 34.23399, val loss 0.69012
+epoch 50, iter 3550, mean return 426.8503272310607, std of return 232.2047731942551
+End of epoch 50. Time for epoch: 0.9080901145935059
+epoch 55, iter 3905, loss 0.75401, smoothed loss 0.81063, grad norm 13.56869, param norm 35.94123, val loss 0.64627
+epoch 55, iter 3905, mean return 613.3409450904006, std of return 195.32747370535182
+Saving to ./experiments/Humanoid-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 55. Time for epoch: 1.1489946842193604
+epoch 60, iter 4260, loss 0.73645, smoothed loss 0.78919, grad norm 10.78749, param norm 37.58241, val loss 0.62994
+epoch 60, iter 4260, mean return 338.3443829078466, std of return 39.53300345167947
+End of epoch 60. Time for epoch: 0.7501535415649414
+epoch 65, iter 4615, loss 0.78820, smoothed loss 0.76749, grad norm 14.77598, param norm 39.19005, val loss 0.62105
+epoch 65, iter 4615, mean return 444.8475459440785, std of return 126.75062256195987
+End of epoch 65. Time for epoch: 0.8913109302520752
+epoch 70, iter 4970, loss 0.74349, smoothed loss 0.74810, grad norm 7.66493, param norm 40.78574, val loss 0.58752
+epoch 70, iter 4970, mean return 496.67555862017116, std of return 68.79929464487985
+End of epoch 70. Time for epoch: 0.9844944477081299
+epoch 75, iter 5325, loss 0.83827, smoothed loss 0.74113, grad norm 13.93366, param norm 42.37461, val loss 0.57816
+epoch 75, iter 5325, mean return 293.197647109595, std of return 33.05635775547999
+End of epoch 75. Time for epoch: 0.7139849662780762
+epoch 80, iter 5680, loss 0.65207, smoothed loss 0.72001, grad norm 15.40172, param norm 43.92343, val loss 0.57833
+epoch 80, iter 5680, mean return 547.2204319851769, std of return 38.981460735479786
+End of epoch 80. Time for epoch: 1.0346508026123047
+epoch 85, iter 6035, loss 0.68179, smoothed loss 0.70519, grad norm 10.93265, param norm 45.43157, val loss 0.56132
+epoch 85, iter 6035, mean return 541.928610800189, std of return 114.30109212678207
+End of epoch 85. Time for epoch: 1.0355150699615479
+epoch 90, iter 6390, loss 0.67411, smoothed loss 0.68749, grad norm 16.05869, param norm 46.91644, val loss 0.56430
+epoch 90, iter 6390, mean return 557.0694919085929, std of return 220.07479775453848
+End of epoch 90. Time for epoch: 1.042327642440796
+epoch 95, iter 6745, loss 0.64606, smoothed loss 0.68098, grad norm 8.82822, param norm 48.38418, val loss 0.53721
+epoch 95, iter 6745, mean return 732.5546955666994, std of return 212.67569477731058
+Saving to ./experiments/Humanoid-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 95. Time for epoch: 1.2934696674346924
+epoch 100, iter 7100, loss 0.63814, smoothed loss 0.66539, grad norm 7.19687, param norm 49.81414, val loss 0.53769
+epoch 100, iter 7100, mean return 667.1458218157563, std of return 233.0013860478858
+End of epoch 100. Time for epoch: 1.1961712837219238
+Saving to ./experiments/Humanoid-v2_smooth-l1/behavioral_cloning/m.ckpt ...
+best: mean return 732.5546955666994, std of return 212.67569477731058

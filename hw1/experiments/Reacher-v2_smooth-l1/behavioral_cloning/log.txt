@@ -1,0 +1,74 @@
+Number of params: 21602
+Beginning training loop...
+epoch 5, iter 20, loss 0.01119, smoothed loss 0.09978, grad norm 0.15940, param norm 14.91421, val loss 0.00721
+epoch 5, iter 20, mean return -11.954662622167124, std of return 3.964654004881623
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 5. Time for epoch: 0.3101191520690918
+epoch 10, iter 40, loss 0.00751, smoothed loss 0.08325, grad norm 0.04237, param norm 14.91086, val loss 0.00660
+epoch 10, iter 40, mean return -8.483779501921001, std of return 3.9288893696429112
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 10. Time for epoch: 0.2668581008911133
+epoch 15, iter 60, loss 0.00425, smoothed loss 0.06919, grad norm 0.03792, param norm 14.91586, val loss 0.00599
+epoch 15, iter 60, mean return -7.798941846845065, std of return 1.929752031647224
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 15. Time for epoch: 0.24962949752807617
+epoch 20, iter 80, loss 0.00296, smoothed loss 0.05736, grad norm 0.02837, param norm 14.92863, val loss 0.00508
+epoch 20, iter 80, mean return -7.521147076663082, std of return 2.307520312003553
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 20. Time for epoch: 0.23456835746765137
+epoch 25, iter 100, loss 0.00315, smoothed loss 0.04756, grad norm 0.03884, param norm 14.94531, val loss 0.00463
+epoch 25, iter 100, mean return -7.482764101988659, std of return 1.7006766471186976
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 25. Time for epoch: 0.2600116729736328
+epoch 30, iter 120, loss 0.00179, smoothed loss 0.03939, grad norm 0.02391, param norm 14.96483, val loss 0.00415
+epoch 30, iter 120, mean return -6.896751525244099, std of return 2.251812822844188
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 30. Time for epoch: 0.247467041015625
+epoch 35, iter 140, loss 0.00155, smoothed loss 0.03266, grad norm 0.02251, param norm 14.98922, val loss 0.00367
+epoch 35, iter 140, mean return -7.516542484597534, std of return 2.5204435839025976
+End of epoch 35. Time for epoch: 0.19693756103515625
+epoch 40, iter 160, loss 0.00157, smoothed loss 0.02710, grad norm 0.02419, param norm 15.01478, val loss 0.00308
+epoch 40, iter 160, mean return -7.94509675864685, std of return 1.2057339033706505
+End of epoch 40. Time for epoch: 0.20965862274169922
+epoch 45, iter 180, loss 0.00142, smoothed loss 0.02251, grad norm 0.02576, param norm 15.04229, val loss 0.00291
+epoch 45, iter 180, mean return -6.866804390645432, std of return 2.2461085484963283
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 45. Time for epoch: 0.24110794067382812
+epoch 50, iter 200, loss 0.00145, smoothed loss 0.01872, grad norm 0.01705, param norm 15.06982, val loss 0.00245
+epoch 50, iter 200, mean return -6.536909161383602, std of return 1.481459909936375
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 50. Time for epoch: 0.2041606903076172
+epoch 55, iter 220, loss 0.00070, smoothed loss 0.01558, grad norm 0.01451, param norm 15.09128, val loss 0.00222
+epoch 55, iter 220, mean return -7.083662706902631, std of return 2.902388672532866
+End of epoch 55. Time for epoch: 0.18427371978759766
+epoch 60, iter 240, loss 0.00113, smoothed loss 0.01299, grad norm 0.01465, param norm 15.11379, val loss 0.00184
+epoch 60, iter 240, mean return -6.837211705728521, std of return 1.8502252117115376
+End of epoch 60. Time for epoch: 0.21276402473449707
+epoch 65, iter 260, loss 0.00094, smoothed loss 0.01085, grad norm 0.01553, param norm 15.13866, val loss 0.00154
+epoch 65, iter 260, mean return -5.684493333517663, std of return 2.6708113565761216
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 65. Time for epoch: 0.25011324882507324
+epoch 70, iter 280, loss 0.00142, smoothed loss 0.00907, grad norm 0.02501, param norm 15.16344, val loss 0.00134
+epoch 70, iter 280, mean return -5.790128835719323, std of return 0.6703810134343915
+End of epoch 70. Time for epoch: 0.20858192443847656
+epoch 75, iter 300, loss 0.00101, smoothed loss 0.00760, grad norm 0.01386, param norm 15.18692, val loss 0.00127
+epoch 75, iter 300, mean return -6.631459448475755, std of return 2.240132122219926
+End of epoch 75. Time for epoch: 0.2251448631286621
+epoch 80, iter 320, loss 0.00088, smoothed loss 0.00639, grad norm 0.01547, param norm 15.20976, val loss 0.00110
+epoch 80, iter 320, mean return -6.943600949838455, std of return 1.5841604406165706
+End of epoch 80. Time for epoch: 0.19396352767944336
+epoch 85, iter 340, loss 0.00082, smoothed loss 0.00540, grad norm 0.02611, param norm 15.23164, val loss 0.00111
+epoch 85, iter 340, mean return -6.022305048361664, std of return 2.6382726367850875
+End of epoch 85. Time for epoch: 0.20497870445251465
+epoch 90, iter 360, loss 0.00132, smoothed loss 0.00457, grad norm 0.01227, param norm 15.25263, val loss 0.00108
+epoch 90, iter 360, mean return -6.956001656223561, std of return 2.9289537854256493
+End of epoch 90. Time for epoch: 0.22395706176757812
+epoch 95, iter 380, loss 0.00051, smoothed loss 0.00389, grad norm 0.00828, param norm 15.27668, val loss 0.00095
+epoch 95, iter 380, mean return -5.844930735138189, std of return 1.472438555895986
+End of epoch 95. Time for epoch: 0.23424458503723145
+epoch 100, iter 400, loss 0.00059, smoothed loss 0.00332, grad norm 0.01819, param norm 15.29769, val loss 0.00087
+epoch 100, iter 400, mean return -5.398036281424561, std of return 2.1656168182624786
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 100. Time for epoch: 0.22197794914245605
+Saving to ./experiments/Reacher-v2_smooth-l1/behavioral_cloning/m.ckpt ...
+best: mean return -5.398036281424561, std of return 2.1656168182624786

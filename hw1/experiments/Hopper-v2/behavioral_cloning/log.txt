@@ -1,0 +1,75 @@
+Number of params: 21703
+Beginning training loop...
+epoch 5, iter 355, loss 0.12318, smoothed loss 0.24491, grad norm 1.64238, param norm 15.80744, val loss 0.03388
+epoch 5, iter 355, mean return 153.19495844413356, std of return 2.4799765006916688
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 5. Time for epoch: 0.5604953765869141
+epoch 10, iter 710, loss 0.07099, smoothed loss 0.07405, grad norm 0.65121, param norm 16.32197, val loss 0.02019
+epoch 10, iter 710, mean return 155.57566103846275, std of return 0.9437739181640526
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 10. Time for epoch: 0.49335622787475586
+epoch 15, iter 1065, loss 0.05811, smoothed loss 0.05789, grad norm 0.72951, param norm 16.73301, val loss 0.02576
+epoch 15, iter 1065, mean return 159.35474296626708, std of return 1.6664509396561404
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 15. Time for epoch: 0.5226702690124512
+epoch 20, iter 1420, loss 0.05274, smoothed loss 0.05009, grad norm 0.90463, param norm 17.12561, val loss 0.01367
+epoch 20, iter 1420, mean return 149.74766975395113, std of return 2.586215068693482
+End of epoch 20. Time for epoch: 0.4264359474182129
+epoch 25, iter 1775, loss 0.05224, smoothed loss 0.04645, grad norm 0.87900, param norm 17.48697, val loss 0.00970
+epoch 25, iter 1775, mean return 146.03353162094842, std of return 0.9696766018546925
+End of epoch 25. Time for epoch: 0.48792171478271484
+epoch 30, iter 2130, loss 0.02987, smoothed loss 0.04305, grad norm 0.69006, param norm 17.85383, val loss 0.01838
+epoch 30, iter 2130, mean return 249.08540501534247, std of return 113.50195408249189
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 30. Time for epoch: 0.6676480770111084
+epoch 35, iter 2485, loss 0.03042, smoothed loss 0.04051, grad norm 0.74789, param norm 18.19887, val loss 0.00879
+epoch 35, iter 2485, mean return 387.70153916891167, std of return 164.91959846145497
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 35. Time for epoch: 0.8247556686401367
+epoch 40, iter 2840, loss 0.05078, smoothed loss 0.03848, grad norm 0.81444, param norm 18.54459, val loss 0.00991
+epoch 40, iter 2840, mean return 1128.548425931744, std of return 5.962499376657353
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 40. Time for epoch: 1.7832517623901367
+epoch 45, iter 3195, loss 0.02805, smoothed loss 0.03684, grad norm 0.38232, param norm 18.88973, val loss 0.00749
+epoch 45, iter 3195, mean return 1105.9300758005595, std of return 119.77596153947339
+End of epoch 45. Time for epoch: 1.6810081005096436
+epoch 50, iter 3550, loss 0.04078, smoothed loss 0.03530, grad norm 0.75322, param norm 19.21460, val loss 0.00850
+epoch 50, iter 3550, mean return 965.7955555398905, std of return 80.21537040373937
+End of epoch 50. Time for epoch: 1.3886020183563232
+epoch 55, iter 3905, loss 0.02545, smoothed loss 0.03472, grad norm 0.51484, param norm 19.54290, val loss 0.00638
+epoch 55, iter 3905, mean return 1256.6261777184413, std of return 141.0338416937467
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 55. Time for epoch: 1.9887993335723877
+epoch 60, iter 4260, loss 0.02320, smoothed loss 0.03329, grad norm 0.52735, param norm 19.85262, val loss 0.01341
+epoch 60, iter 4260, mean return 1352.567430374987, std of return 115.90245701066452
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 60. Time for epoch: 2.096349000930786
+epoch 65, iter 4615, loss 0.02563, smoothed loss 0.03296, grad norm 0.52655, param norm 20.16363, val loss 0.00772
+epoch 65, iter 4615, mean return 1434.7204502532466, std of return 139.44973139312904
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 65. Time for epoch: 1.95290207862854
+epoch 70, iter 4970, loss 0.02759, smoothed loss 0.03194, grad norm 0.59544, param norm 20.46612, val loss 0.00959
+epoch 70, iter 4970, mean return 1531.5388876471893, std of return 256.44698291882094
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 70. Time for epoch: 1.8318569660186768
+epoch 75, iter 5325, loss 0.03251, smoothed loss 0.03146, grad norm 0.74661, param norm 20.78092, val loss 0.00936
+epoch 75, iter 5325, mean return 1394.3487486180209, std of return 279.2373185968098
+End of epoch 75. Time for epoch: 2.1065433025360107
+epoch 80, iter 5680, loss 0.03085, smoothed loss 0.03054, grad norm 0.43822, param norm 21.09137, val loss 0.00620
+epoch 80, iter 5680, mean return 1860.2680981385904, std of return 444.3132144990199
+Saving to ./experiments/Hopper-v2/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 80. Time for epoch: 2.6485769748687744
+epoch 85, iter 6035, loss 0.02976, smoothed loss 0.03015, grad norm 0.38820, param norm 21.39191, val loss 0.01271
+epoch 85, iter 6035, mean return 1194.474809403349, std of return 124.74045978071133
+End of epoch 85. Time for epoch: 1.711977481842041
+epoch 90, iter 6390, loss 0.03510, smoothed loss 0.02984, grad norm 0.49377, param norm 21.69950, val loss 0.00966
+epoch 90, iter 6390, mean return 1369.5576764902085, std of return 434.650198415637
+End of epoch 90. Time for epoch: 2.0697712898254395
+epoch 95, iter 6745, loss 0.03781, smoothed loss 0.02906, grad norm 1.15166, param norm 22.00221, val loss 0.01467
+epoch 95, iter 6745, mean return 1773.9631070079206, std of return 599.5400776851549
+End of epoch 95. Time for epoch: 2.909196376800537
+epoch 100, iter 7100, loss 0.03589, smoothed loss 0.02939, grad norm 0.58511, param norm 22.31286, val loss 0.00937
+epoch 100, iter 7100, mean return 961.2311822057327, std of return 125.15266573431546
+End of epoch 100. Time for epoch: 1.9068825244903564
+Saving to ./experiments/Hopper-v2/behavioral_cloning/m.ckpt ...
+best: mean return 1860.2680981385904, std of return 444.3132144990199

@@ -1,0 +1,72 @@
+Number of params: 32208
+Beginning training loop...
+epoch 5, iter 355, loss 0.05157, smoothed loss 0.14537, grad norm 0.29652, param norm 18.12758, val loss 0.03864
+epoch 5, iter 355, mean return 1276.9876286564352, std of return 60.10529656224147
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 5. Time for epoch: 8.4476478099823
+epoch 10, iter 710, loss 0.03767, smoothed loss 0.04131, grad norm 0.22822, param norm 18.37200, val loss 0.02554
+epoch 10, iter 710, mean return 2839.26501518904, std of return 594.0245420390191
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 10. Time for epoch: 8.08652400970459
+epoch 15, iter 1065, loss 0.03026, smoothed loss 0.02983, grad norm 0.21357, param norm 18.58258, val loss 0.01924
+epoch 15, iter 1065, mean return 4177.91627257222, std of return 198.64316535588495
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 15. Time for epoch: 8.41410779953003
+epoch 20, iter 1420, loss 0.01940, smoothed loss 0.02482, grad norm 0.16647, param norm 18.74852, val loss 0.01618
+epoch 20, iter 1420, mean return 3762.8113772372744, std of return 1362.380370208695
+End of epoch 20. Time for epoch: 7.514621734619141
+epoch 25, iter 1775, loss 0.02026, smoothed loss 0.02165, grad norm 0.20403, param norm 18.88145, val loss 0.01389
+epoch 25, iter 1775, mean return 4247.0851116822105, std of return 977.3755575308845
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 25. Time for epoch: 8.074073076248169
+epoch 30, iter 2130, loss 0.02083, smoothed loss 0.01925, grad norm 0.30170, param norm 19.00285, val loss 0.01179
+epoch 30, iter 2130, mean return 4002.595192445977, std of return 1371.4292166768637
+End of epoch 30. Time for epoch: 7.177976608276367
+epoch 35, iter 2485, loss 0.01468, smoothed loss 0.01742, grad norm 0.17040, param norm 19.11900, val loss 0.01116
+epoch 35, iter 2485, mean return 4667.716792221154, std of return 107.96534275122869
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 35. Time for epoch: 7.900569677352905
+epoch 40, iter 2840, loss 0.01834, smoothed loss 0.01604, grad norm 0.26401, param norm 19.21245, val loss 0.00945
+epoch 40, iter 2840, mean return 4568.12190334519, std of return 130.6976372789881
+End of epoch 40. Time for epoch: 8.099365472793579
+epoch 45, iter 3195, loss 0.01564, smoothed loss 0.01500, grad norm 0.22539, param norm 19.30325, val loss 0.00974
+epoch 45, iter 3195, mean return 4564.400243892481, std of return 119.54186949466823
+End of epoch 45. Time for epoch: 8.02830958366394
+epoch 50, iter 3550, loss 0.01335, smoothed loss 0.01419, grad norm 0.20322, param norm 19.38930, val loss 0.00858
+epoch 50, iter 3550, mean return 4642.571497450219, std of return 94.08285121848088
+End of epoch 50. Time for epoch: 8.373547077178955
+epoch 55, iter 3905, loss 0.01315, smoothed loss 0.01365, grad norm 0.31608, param norm 19.47686, val loss 0.00811
+epoch 55, iter 3905, mean return 4625.748247901291, std of return 67.5585382694911
+End of epoch 55. Time for epoch: 8.136841297149658
+epoch 60, iter 4260, loss 0.01229, smoothed loss 0.01292, grad norm 0.16459, param norm 19.57179, val loss 0.00734
+epoch 60, iter 4260, mean return 4735.2445002232635, std of return 119.62676154700219
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 60. Time for epoch: 8.258839130401611
+epoch 65, iter 4615, loss 0.01244, smoothed loss 0.01235, grad norm 0.27379, param norm 19.66839, val loss 0.00745
+epoch 65, iter 4615, mean return 4527.037979283256, std of return 74.99496635340836
+End of epoch 65. Time for epoch: 7.692845582962036
+epoch 70, iter 4970, loss 0.01206, smoothed loss 0.01197, grad norm 0.21828, param norm 19.75890, val loss 0.00684
+epoch 70, iter 4970, mean return 4743.6640470345965, std of return 45.68354283837217
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 70. Time for epoch: 7.947755575180054
+epoch 75, iter 5325, loss 0.00958, smoothed loss 0.01152, grad norm 0.41556, param norm 19.85112, val loss 0.00739
+epoch 75, iter 5325, mean return 4586.693774979065, std of return 73.48267082283296
+End of epoch 75. Time for epoch: 7.878896713256836
+epoch 80, iter 5680, loss 0.00997, smoothed loss 0.01133, grad norm 0.27828, param norm 19.96182, val loss 0.00698
+epoch 80, iter 5680, mean return 4634.906431863225, std of return 94.52719271550691
+End of epoch 80. Time for epoch: 8.397018909454346
+epoch 85, iter 6035, loss 0.01064, smoothed loss 0.01098, grad norm 0.18035, param norm 20.06936, val loss 0.00673
+epoch 85, iter 6035, mean return 4667.068174106653, std of return 73.02017715867254
+End of epoch 85. Time for epoch: 8.147117137908936
+epoch 90, iter 6390, loss 0.01089, smoothed loss 0.01069, grad norm 0.16192, param norm 20.17713, val loss 0.00571
+epoch 90, iter 6390, mean return 4680.41807534132, std of return 82.43464673745108
+End of epoch 90. Time for epoch: 7.684818506240845
+epoch 95, iter 6745, loss 0.00860, smoothed loss 0.01043, grad norm 0.23341, param norm 20.29491, val loss 0.00554
+epoch 95, iter 6745, mean return 4812.367257073039, std of return 64.92048168442075
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 95. Time for epoch: 8.369622230529785
+epoch 100, iter 7100, loss 0.00923, smoothed loss 0.01023, grad norm 0.19594, param norm 20.41543, val loss 0.00558
+epoch 100, iter 7100, mean return 4433.099323456475, std of return 978.615574243222
+End of epoch 100. Time for epoch: 8.097581386566162
+Saving to ./experiments/Ant-v2_smooth-l1/behavioral_cloning/m.ckpt ...
+best: mean return 4812.367257073039, std of return 64.92048168442075

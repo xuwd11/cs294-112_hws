@@ -1,0 +1,72 @@
+Number of params: 22606
+Beginning training loop...
+epoch 5, iter 355, loss 0.33996, smoothed loss 0.60068, grad norm 2.42593, param norm 16.35545, val loss 0.20390
+epoch 5, iter 355, mean return 131.51694325426917, std of return 3.507896786054833
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 5. Time for epoch: 0.5817322731018066
+epoch 10, iter 710, loss 0.24091, smoothed loss 0.25620, grad norm 1.81947, param norm 16.99763, val loss 0.12458
+epoch 10, iter 710, mean return 255.94711990938168, std of return 114.26901338925063
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 10. Time for epoch: 0.7680082321166992
+epoch 15, iter 1065, loss 0.18756, smoothed loss 0.19602, grad norm 1.70530, param norm 17.50673, val loss 0.09758
+epoch 15, iter 1065, mean return 324.27878263238455, std of return 237.70190599936083
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 15. Time for epoch: 0.969264030456543
+epoch 20, iter 1420, loss 0.19428, smoothed loss 0.16553, grad norm 1.87195, param norm 17.92784, val loss 0.08309
+epoch 20, iter 1420, mean return 211.75756463709004, std of return 75.1881555016552
+End of epoch 20. Time for epoch: 0.6748080253601074
+epoch 25, iter 1775, loss 0.15128, smoothed loss 0.14694, grad norm 1.44730, param norm 18.32965, val loss 0.06734
+epoch 25, iter 1775, mean return 187.27587235645632, std of return 3.1089674452081724
+End of epoch 25. Time for epoch: 0.6298389434814453
+epoch 30, iter 2130, loss 0.13037, smoothed loss 0.13179, grad norm 1.24408, param norm 18.67276, val loss 0.06065
+epoch 30, iter 2130, mean return 518.5587296191509, std of return 430.87047149419595
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 30. Time for epoch: 1.073138952255249
+epoch 35, iter 2485, loss 0.12901, smoothed loss 0.12141, grad norm 1.38371, param norm 18.98950, val loss 0.05110
+epoch 35, iter 2485, mean return 278.9235638643954, std of return 273.4179617181802
+End of epoch 35. Time for epoch: 0.6609179973602295
+epoch 40, iter 2840, loss 0.13103, smoothed loss 0.11368, grad norm 1.60315, param norm 19.28526, val loss 0.05221
+epoch 40, iter 2840, mean return 1693.5733962266822, std of return 672.9109119372148
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 40. Time for epoch: 2.51267409324646
+epoch 45, iter 3195, loss 0.09873, smoothed loss 0.10785, grad norm 1.11717, param norm 19.56703, val loss 0.04521
+epoch 45, iter 3195, mean return 525.568417850709, std of return 300.6906142017321
+End of epoch 45. Time for epoch: 1.1741654872894287
+epoch 50, iter 3550, loss 0.12313, smoothed loss 0.10285, grad norm 1.24989, param norm 19.82455, val loss 0.04034
+epoch 50, iter 3550, mean return 892.4070561993643, std of return 1312.5019816385948
+End of epoch 50. Time for epoch: 1.4568207263946533
+epoch 55, iter 3905, loss 0.10060, smoothed loss 0.09794, grad norm 1.16975, param norm 20.08871, val loss 0.03881
+epoch 55, iter 3905, mean return 1719.3042214947811, std of return 806.3661560462986
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 55. Time for epoch: 2.1199722290039062
+epoch 60, iter 4260, loss 0.07970, smoothed loss 0.09410, grad norm 1.05508, param norm 20.31912, val loss 0.04040
+epoch 60, iter 4260, mean return 1203.0233039222946, std of return 516.8526626412566
+End of epoch 60. Time for epoch: 1.9314651489257812
+epoch 65, iter 4615, loss 0.09234, smoothed loss 0.09209, grad norm 1.24531, param norm 20.57373, val loss 0.03623
+epoch 65, iter 4615, mean return 382.0754308640502, std of return 335.6937571087195
+End of epoch 65. Time for epoch: 0.8791882991790771
+epoch 70, iter 4970, loss 0.09124, smoothed loss 0.08938, grad norm 1.55597, param norm 20.82586, val loss 0.03408
+epoch 70, iter 4970, mean return 1385.9510059984236, std of return 1696.6120860888486
+End of epoch 70. Time for epoch: 1.8578801155090332
+epoch 75, iter 5325, loss 0.08558, smoothed loss 0.08678, grad norm 1.28347, param norm 21.06763, val loss 0.03410
+epoch 75, iter 5325, mean return 2783.0803842350224, std of return 991.0948588008918
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 75. Time for epoch: 3.9144508838653564
+epoch 80, iter 5680, loss 0.08570, smoothed loss 0.08612, grad norm 1.22461, param norm 21.30065, val loss 0.04044
+epoch 80, iter 5680, mean return 605.282068114202, std of return 989.5302190860149
+End of epoch 80. Time for epoch: 1.2952427864074707
+epoch 85, iter 6035, loss 0.07490, smoothed loss 0.08366, grad norm 1.01438, param norm 21.53929, val loss 0.03552
+epoch 85, iter 6035, mean return 3550.198735968121, std of return 930.484101842793
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 85. Time for epoch: 5.191553354263306
+epoch 90, iter 6390, loss 0.09130, smoothed loss 0.08262, grad norm 1.68885, param norm 21.78962, val loss 0.03085
+epoch 90, iter 6390, mean return 2402.7153261763488, std of return 1274.8358840298795
+End of epoch 90. Time for epoch: 3.418055772781372
+epoch 95, iter 6745, loss 0.09597, smoothed loss 0.08075, grad norm 1.06090, param norm 22.02825, val loss 0.02963
+epoch 95, iter 6745, mean return 3204.5465338564136, std of return 1209.3485306498928
+End of epoch 95. Time for epoch: 4.013197422027588
+epoch 100, iter 7100, loss 0.07113, smoothed loss 0.07979, grad norm 0.94600, param norm 22.27803, val loss 0.03178
+epoch 100, iter 7100, mean return 367.61082682972153, std of return 735.3399498150574
+End of epoch 100. Time for epoch: 0.6043682098388672
+Saving to ./experiments/Walker2d-v2_smooth-l1/behavioral_cloning/m.ckpt ...
+best: mean return 3550.198735968121, std of return 930.484101842793

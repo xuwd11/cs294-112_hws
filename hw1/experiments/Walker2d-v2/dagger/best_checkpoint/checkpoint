@@ -1,0 +1,2 @@
+model_checkpoint_path: "m_best.ckpt-15565"
+all_model_checkpoint_paths: "m_best.ckpt-15565"

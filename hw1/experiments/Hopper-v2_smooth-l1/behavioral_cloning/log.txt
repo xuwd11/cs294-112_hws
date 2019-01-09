@@ -1,0 +1,73 @@
+Number of params: 21703
+Beginning training loop...
+epoch 5, iter 355, loss 0.09375, smoothed loss 0.18917, grad norm 0.95807, param norm 15.91887, val loss 0.02614
+epoch 5, iter 355, mean return 173.14575514087406, std of return 3.784041529909101
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 5. Time for epoch: 0.62959885597229
+epoch 10, iter 710, loss 0.05091, smoothed loss 0.06707, grad norm 0.70348, param norm 16.48690, val loss 0.01758
+epoch 10, iter 710, mean return 173.73207031453438, std of return 6.09784854623369
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 10. Time for epoch: 0.6112759113311768
+epoch 15, iter 1065, loss 0.05976, smoothed loss 0.05346, grad norm 0.85777, param norm 16.97260, val loss 0.01586
+epoch 15, iter 1065, mean return 168.28244146164144, std of return 2.4010358228474504
+End of epoch 15. Time for epoch: 0.5018637180328369
+epoch 20, iter 1420, loss 0.03237, smoothed loss 0.04539, grad norm 0.47013, param norm 17.41129, val loss 0.01130
+epoch 20, iter 1420, mean return 141.47916437304315, std of return 2.556752409684276
+End of epoch 20. Time for epoch: 0.4794292449951172
+epoch 25, iter 1775, loss 0.04669, smoothed loss 0.04203, grad norm 0.47196, param norm 17.82198, val loss 0.00814
+epoch 25, iter 1775, mean return 878.4907897648652, std of return 372.1079762798418
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 25. Time for epoch: 1.5422468185424805
+epoch 30, iter 2130, loss 0.04259, smoothed loss 0.03937, grad norm 0.54196, param norm 18.19990, val loss 0.01034
+epoch 30, iter 2130, mean return 771.4555759022053, std of return 197.01730636954122
+End of epoch 30. Time for epoch: 1.2574703693389893
+epoch 35, iter 2485, loss 0.02883, smoothed loss 0.03724, grad norm 0.72856, param norm 18.54573, val loss 0.00720
+epoch 35, iter 2485, mean return 929.2212255382938, std of return 319.7041590777658
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 35. Time for epoch: 1.6010758876800537
+epoch 40, iter 2840, loss 0.02611, smoothed loss 0.03585, grad norm 0.39856, param norm 18.89597, val loss 0.00728
+epoch 40, iter 2840, mean return 992.8567575662613, std of return 127.08146280194006
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 40. Time for epoch: 1.8095831871032715
+epoch 45, iter 3195, loss 0.03262, smoothed loss 0.03428, grad norm 0.79844, param norm 19.21082, val loss 0.01303
+epoch 45, iter 3195, mean return 992.8033975908827, std of return 240.93123129946878
+End of epoch 45. Time for epoch: 1.5627408027648926
+epoch 50, iter 3550, loss 0.03089, smoothed loss 0.03394, grad norm 0.44204, param norm 19.54714, val loss 0.02642
+epoch 50, iter 3550, mean return 1017.0396749102886, std of return 230.1524856369732
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 50. Time for epoch: 1.6992692947387695
+epoch 55, iter 3905, loss 0.03119, smoothed loss 0.03288, grad norm 0.53332, param norm 19.87415, val loss 0.01257
+epoch 55, iter 3905, mean return 1057.578716200492, std of return 240.62611649459754
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 55. Time for epoch: 1.7882907390594482
+epoch 60, iter 4260, loss 0.03122, smoothed loss 0.03167, grad norm 0.65929, param norm 20.19130, val loss 0.01659
+epoch 60, iter 4260, mean return 1133.6578274335109, std of return 368.27716014075827
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 60. Time for epoch: 1.5019330978393555
+epoch 65, iter 4615, loss 0.03826, smoothed loss 0.03111, grad norm 0.88493, param norm 20.50555, val loss 0.00677
+epoch 65, iter 4615, mean return 639.9638806409282, std of return 165.51613258614813
+End of epoch 65. Time for epoch: 1.2413420677185059
+epoch 70, iter 4970, loss 0.02149, smoothed loss 0.03015, grad norm 0.69947, param norm 20.83152, val loss 0.00825
+epoch 70, iter 4970, mean return 770.0657371111099, std of return 275.01346585609423
+End of epoch 70. Time for epoch: 1.3395302295684814
+epoch 75, iter 5325, loss 0.02643, smoothed loss 0.03030, grad norm 0.54554, param norm 21.19234, val loss 0.01072
+epoch 75, iter 5325, mean return 773.7487845687883, std of return 176.61844429589115
+End of epoch 75. Time for epoch: 1.6059179306030273
+epoch 80, iter 5680, loss 0.03423, smoothed loss 0.02934, grad norm 0.40843, param norm 21.51598, val loss 0.01154
+epoch 80, iter 5680, mean return 1322.506240086797, std of return 401.78015309594
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 80. Time for epoch: 2.041226387023926
+epoch 85, iter 6035, loss 0.02894, smoothed loss 0.02916, grad norm 0.38318, param norm 21.85007, val loss 0.01087
+epoch 85, iter 6035, mean return 871.5298856467632, std of return 171.8726255430934
+End of epoch 85. Time for epoch: 1.487210750579834
+epoch 90, iter 6390, loss 0.02678, smoothed loss 0.02875, grad norm 0.43427, param norm 22.17863, val loss 0.01507
+epoch 90, iter 6390, mean return 1082.0242067372249, std of return 281.96827304738093
+End of epoch 90. Time for epoch: 1.7558505535125732
+epoch 95, iter 6745, loss 0.02549, smoothed loss 0.02793, grad norm 0.42939, param norm 22.50935, val loss 0.00639
+epoch 95, iter 6745, mean return 1020.3953536506227, std of return 249.72190656679578
+End of epoch 95. Time for epoch: 1.6909229755401611
+epoch 100, iter 7100, loss 0.02617, smoothed loss 0.02770, grad norm 0.69054, param norm 22.82582, val loss 0.01306
+epoch 100, iter 7100, mean return 1257.182474418667, std of return 418.8859288760303
+End of epoch 100. Time for epoch: 2.142378807067871
+Saving to ./experiments/Hopper-v2_smooth-l1/behavioral_cloning/m.ckpt ...
+best: mean return 1322.506240086797, std of return 401.78015309594

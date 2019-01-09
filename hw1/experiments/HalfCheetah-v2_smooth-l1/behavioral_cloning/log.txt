@@ -1,0 +1,75 @@
+Number of params: 22606
+Beginning training loop...
+epoch 5, iter 355, loss 0.14678, smoothed loss 0.40919, grad norm 1.02305, param norm 15.79440, val loss 0.08342
+epoch 5, iter 355, mean return 1912.986637070598, std of return 802.0568305423815
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 5. Time for epoch: 4.526590347290039
+epoch 10, iter 710, loss 0.08282, smoothed loss 0.11123, grad norm 0.82108, param norm 16.28936, val loss 0.05242
+epoch 10, iter 710, mean return 3634.926445464743, std of return 214.64012639632432
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 10. Time for epoch: 4.279839515686035
+epoch 15, iter 1065, loss 0.06849, smoothed loss 0.07861, grad norm 0.90906, param norm 16.74639, val loss 0.03862
+epoch 15, iter 1065, mean return 3727.072682539583, std of return 136.5793399194357
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 15. Time for epoch: 4.229300498962402
+epoch 20, iter 1420, loss 0.05962, smoothed loss 0.06434, grad norm 0.55577, param norm 17.13787, val loss 0.03051
+epoch 20, iter 1420, mean return 3954.8438017958424, std of return 88.28529447942987
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 20. Time for epoch: 4.258913040161133
+epoch 25, iter 1775, loss 0.07001, smoothed loss 0.05646, grad norm 0.65521, param norm 17.47334, val loss 0.02519
+epoch 25, iter 1775, mean return 3979.7122909490695, std of return 108.76448678881601
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 25. Time for epoch: 4.436198949813843
+epoch 30, iter 2130, loss 0.05112, smoothed loss 0.04975, grad norm 0.64368, param norm 17.76362, val loss 0.02096
+epoch 30, iter 2130, mean return 4044.136785061619, std of return 100.69255400643576
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 30. Time for epoch: 4.66977334022522
+epoch 35, iter 2485, loss 0.04325, smoothed loss 0.04623, grad norm 0.80197, param norm 18.04120, val loss 0.01974
+epoch 35, iter 2485, mean return 4090.1784079371837, std of return 108.82437352624655
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 35. Time for epoch: 4.538258075714111
+epoch 40, iter 2840, loss 0.04290, smoothed loss 0.04308, grad norm 0.77550, param norm 18.30190, val loss 0.01753
+epoch 40, iter 2840, mean return 4074.203402015607, std of return 114.45031800658568
+End of epoch 40. Time for epoch: 3.988328456878662
+epoch 45, iter 3195, loss 0.03951, smoothed loss 0.04038, grad norm 0.70632, param norm 18.52551, val loss 0.01520
+epoch 45, iter 3195, mean return 4093.2626556250893, std of return 89.72780379373059
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 45. Time for epoch: 3.5818653106689453
+epoch 50, iter 3550, loss 0.04062, smoothed loss 0.03831, grad norm 0.80427, param norm 18.74655, val loss 0.01653
+epoch 50, iter 3550, mean return 4140.175219460247, std of return 77.79046276344778
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 50. Time for epoch: 4.124358654022217
+epoch 55, iter 3905, loss 0.04126, smoothed loss 0.03734, grad norm 0.66667, param norm 18.96803, val loss 0.01409
+epoch 55, iter 3905, mean return 4118.041842526158, std of return 90.70793019524886
+End of epoch 55. Time for epoch: 3.748224973678589
+epoch 60, iter 4260, loss 0.03405, smoothed loss 0.03592, grad norm 0.76622, param norm 19.18086, val loss 0.01458
+epoch 60, iter 4260, mean return 4145.936024788743, std of return 83.06382676810891
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 60. Time for epoch: 4.1458823680877686
+epoch 65, iter 4615, loss 0.02984, smoothed loss 0.03477, grad norm 0.45325, param norm 19.40331, val loss 0.01229
+epoch 65, iter 4615, mean return 4170.078968017848, std of return 84.54311328496388
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/best_checkpoint/m_best.ckpt ...
+End of epoch 65. Time for epoch: 4.354416370391846
+epoch 70, iter 4970, loss 0.03289, smoothed loss 0.03376, grad norm 0.54096, param norm 19.60744, val loss 0.01343
+epoch 70, iter 4970, mean return 4151.1849795578055, std of return 58.98353422624927
+End of epoch 70. Time for epoch: 4.0076024532318115
+epoch 75, iter 5325, loss 0.02708, smoothed loss 0.03294, grad norm 0.47594, param norm 19.83765, val loss 0.01332
+epoch 75, iter 5325, mean return 4111.319822738637, std of return 119.92300982100714
+End of epoch 75. Time for epoch: 4.193701505661011
+epoch 80, iter 5680, loss 0.02966, smoothed loss 0.03211, grad norm 0.71908, param norm 20.05207, val loss 0.01390
+epoch 80, iter 5680, mean return 4085.3615724577494, std of return 119.12919589951045
+End of epoch 80. Time for epoch: 4.173971891403198
+epoch 85, iter 6035, loss 0.04352, smoothed loss 0.03171, grad norm 0.94065, param norm 20.26018, val loss 0.01274
+epoch 85, iter 6035, mean return 4006.794373066431, std of return 38.31449290254566
+End of epoch 85. Time for epoch: 4.017800569534302
+epoch 90, iter 6390, loss 0.02393, smoothed loss 0.03060, grad norm 0.39017, param norm 20.48079, val loss 0.01240
+epoch 90, iter 6390, mean return 4100.486345368916, std of return 52.29735435014401
+End of epoch 90. Time for epoch: 3.973700523376465
+epoch 95, iter 6745, loss 0.03091, smoothed loss 0.03048, grad norm 0.68327, param norm 20.70849, val loss 0.01209
+epoch 95, iter 6745, mean return 4120.83969420185, std of return 102.93615759289389
+End of epoch 95. Time for epoch: 4.377758979797363
+epoch 100, iter 7100, loss 0.03186, smoothed loss 0.03016, grad norm 0.45278, param norm 20.95671, val loss 0.01019
+epoch 100, iter 7100, mean return 4099.322148746476, std of return 77.34966099767574
+End of epoch 100. Time for epoch: 3.7960143089294434
+Saving to ./experiments/HalfCheetah-v2_smooth-l1/behavioral_cloning/m.ckpt ...
+best: mean return 4170.078968017848, std of return 84.54311328496388
