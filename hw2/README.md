@@ -1,10 +1,22 @@
 # CS294-112 HW 2: Policy Gradient
 
+## Results
 ### Problem 1
 #### 1a
 For each term in equation 12, we have
 
 <p align="center"><img src="/hw2/tex/344d33eb616b74dbcae4e4d2aae62c94.svg?invert_in_darkmode&sanitize=true" align=middle width=774.5332006499999pt height=280.5902187pt/></p>
+
+Therefore, 
+
+<p align="center"><img src="/hw2/tex/c27101b2bb742f3c10dfd4f7b27c299b.svg?invert_in_darkmode&sanitize=true" align=middle width=282.41141775pt height=47.60747145pt/></p>
+
+#### 1b
+**a** Future states and actions are independent of previous states and actions given the current state according to the Markov property of MDP.
+
+**b**
+
+<p align="center"><img src="/hw2/tex/6032ead988551c349c799b3f615ec60a.svg?invert_in_darkmode&sanitize=true" align=middle width=781.5363831pt height=320.773266pt/></p>
 
 Therefore, 
 
