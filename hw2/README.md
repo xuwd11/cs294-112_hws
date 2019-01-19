@@ -1,5 +1,26 @@
 # CS294-112 HW 2: Policy Gradient
 
+### Problem 1
+#### 1a
+For each term in equation 12, we have
+
+\begin{align*}
+\mathbb{E}_{\tau\sim p_\theta(\tau)}[\nabla_\theta \log \pi_\theta(a_t|s_t)(b(s_t))]
+&=\int p_\theta(\tau)\nabla_\theta \log \pi_\theta(a_t|s_t)(b(s_t))\text{d}\tau\\
+&=\iiint p_\theta(s_t,a_t) p_\theta(\tau/s_t,a_t|s_t,a_t)b(s_t)\nabla_\theta \log \pi_\theta(a_t|s_t)\text{d}(\tau/s_t,a_t)\text{d}a_t\text{d}s_t\\
+&=\iint p_\theta(s_t,a_t) b(s_t)\nabla_\theta \log \pi_\theta(a_t|s_t)\left(\int p_\theta(\tau/s_t,a_t|s_t,a_t)\text{d}(\tau/s_t,a_t)\right)\text{d}a_t\text{d}s_t\\
+&=\iint \frac{p_\theta(s_t,a_t)}{\pi_\theta(a_t|s_t)} b(s_t)\nabla_\theta \pi_\theta(a_t|s_t)\text{d}a_t\text{d}s_t\\
+&=\int p_\theta(s_t)b(s_t)\left(\nabla_\theta\int\pi_\theta(a_t|s_t)\text{d}a_t\right)\text{d}s_t\\
+&=\int p_\theta(s_t)b(s_t)(\nabla_\theta 1)\text{d}s_t\\
+&=0
+\end{align*}
+
+Therefore, 
+
+$$\sum_{t=1}^{T}\mathbb{E}_{\tau\sim p_\theta(\tau)}[\nabla_\theta \log \pi_\theta(a_t|s_t)(b(s_t))] = 0$$
+
+## Original README
+
 Dependencies:
  * Python **3.5**
  * Numpy version **1.14.5**
