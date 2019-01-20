@@ -41,6 +41,17 @@ Therefore,
 
 $$\sum_{t=1}^{T}\mathbb{E}_{\tau\sim p_\theta(\tau)}[\nabla_\theta \log \pi_\theta(a_t|s_t)(b(s_t))] = 0$$
 
+### Problem 4
+
+<p float="left">
+  <img src="./results/p4_sb.png" width="350"/>
+  <img src="./results/p4_lb.png" width="350"/>
+</p>
+
+* Reward-to-go has better performance than the trajectory-centric one without advantage-centering; reward-to-go converges faster and has lower variance.
+* Advantage centering helps reduce the variance after convergence.
+* Larger batch size helps reduce the variance.
+
 ## Original README
 
 Dependencies:
