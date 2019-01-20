@@ -105,5 +105,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# pkl file
+*.pkl
+
 # other files
 debug.*
