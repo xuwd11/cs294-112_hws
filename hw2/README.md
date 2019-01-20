@@ -33,6 +33,13 @@ Therefore,
 * Advantage centering helps reduce the variance after convergence.
 * Larger batch size helps reduce the variance.
 
+### Problem 5
+
+<p float="left">
+  <img src="./results/p5_ip_b-1000_lr-1e-2.png" width="350"/>
+</p>
+
+
 ## Original README
 
 Dependencies:
