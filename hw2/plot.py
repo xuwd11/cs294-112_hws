@@ -93,8 +93,12 @@ def main():
     parser.add_argument('logdir', nargs='*')
     parser.add_argument('--legend', nargs='*')
     parser.add_argument('--value', default='AverageReturn', nargs='*')
+    parser.add_argument('--save_name', type=str, default='results')
     args = parser.parse_args()
-
+    
+    if not os.path.exists('results'):
+        os.makedirs('results')
+    
     use_legend = False
     if args.legend is not None:
         assert len(args.legend) == len(args.logdir), \
@@ -115,6 +119,12 @@ def main():
         values = [args.value]
     for value in values:
         plot_data(data, value=value)
+    plt.savefig(
+        os.path.join('results', args.save_name + '.png'),
+        bbox_inches='tight',
+        transparent=True,
+        pad_inches=0.1
+    )
 
 if __name__ == "__main__":
     main()
