@@ -177,7 +177,7 @@ class Agent(object):
         
                       mu + sigma * z,         z ~ N(0, I)
         
-                 This reduces the problem to just sampling z. (Hint: use tf.random.normal!)
+                 This reduces the problem to just sampling z. (Hint: use tf.random_normal!)
         """
         if self.discrete:
             sy_logits_na = policy_parameters
@@ -186,7 +186,7 @@ class Agent(object):
         else:
             sy_mean, sy_logstd = policy_parameters
             # YOUR_CODE_HERE
-            sy_sampled_ac = sy_mean + tf.exp(sy_logstd) * tf.random.normal(tf.shape(sy_mean))
+            sy_sampled_ac = sy_mean + tf.exp(sy_logstd) * tf.random_normal(tf.shape(sy_mean))
         return sy_sampled_ac
 
     #========================================================================================#
