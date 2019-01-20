@@ -22,6 +22,17 @@ Therefore,
 
 <p align="center"><img src="/hw2/tex/c27101b2bb742f3c10dfd4f7b27c299b.svg?invert_in_darkmode&sanitize=true" align=middle width=282.41141775pt height=47.60747145pt/></p>
 
+### Problem 4
+
+<p float="left">
+  <img src="./results/p4_sb.png" width="350"/>
+  <img src="./results/p4_lb.png" width="350"/>
+</p>
+
+* Reward-to-go has better performance than the trajectory-centric one without advantage-centering; reward-to-go converges faster and has lower variance.
+* Advantage centering helps reduce the variance after convergence.
+* Larger batch size helps reduce the variance.
+
 ## Original README
 
 Dependencies:
