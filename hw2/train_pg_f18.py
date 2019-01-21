@@ -144,11 +144,11 @@ class Agent(object):
         """
         if self.discrete:
             # YOUR_CODE_HERE
-            sy_logits_na = build_mlp(sy_ob_no, self.ac_dim, 'mlp', self.n_layers, self.size)
+            sy_logits_na = build_mlp(sy_ob_no, self.ac_dim, 'policy_mlp', self.n_layers, self.size)
             return sy_logits_na
         else:
             # YOUR_CODE_HERE
-            sy_mean = build_mlp(sy_ob_no, self.ac_dim, 'mlp', self.n_layers, self.size)
+            sy_mean = build_mlp(sy_ob_no, self.ac_dim, 'policy_mlp', self.n_layers, self.size)
             sy_logstd = tf.get_variable('sy_logstd', [self.ac_dim], dtype=tf.float32, trainable=True)
             return (sy_mean, sy_logstd)
 
@@ -182,7 +182,7 @@ class Agent(object):
         if self.discrete:
             sy_logits_na = policy_parameters
             # YOUR_CODE_HERE
-            sy_sampled_ac = tf.squeeze(tf.multinomial(sy_logits_na, 1, output_dtype=tf.int32), axis=1)
+            sy_sampled_ac = tf.squeeze(tf.multinomial(sy_logits_na, 1, output_dtype=tf.int64), axis=1)
         else:
             sy_mean, sy_logstd = policy_parameters
             # YOUR_CODE_HERE
@@ -278,7 +278,6 @@ class Agent(object):
         # neural network baseline. These will be used to fit the neural network baseline. 
         #========================================================================================#
         if self.nn_baseline:
-            raise NotImplementedError
             self.baseline_prediction = tf.squeeze(build_mlp(
                                     self.sy_ob_no, 
                                     1, 
@@ -286,8 +285,11 @@ class Agent(object):
                                     n_layers=self.n_layers,
                                     size=self.size))
             # YOUR_CODE_HERE
-            self.sy_target_n = None
-            baseline_loss = None
+            self.sy_target_n = tf.placeholder(shape=[None], name='expected_reward', dtype=tf.float32)
+            baseline_loss = tf.losses.mean_squared_error(
+                labels=self.sy_target_n,
+                predictions=self.baseline_prediction
+            )
             self.baseline_update_op = tf.train.AdamOptimizer(self.learning_rate).minimize(baseline_loss)
 
     def sample_trajectories(self, itr, env):
@@ -319,7 +321,7 @@ class Agent(object):
             ac = self.sess.run(self.sy_sampled_ac, feed_dict={self.sy_ob_no: ob.reshape(1, -1)})
             ac = ac[0]
             acs.append(ac)
-            ob, rew, done, _ = env.step(ac)
+            ob, rew, done, _ = env.step(ac.astype(int))
             rewards.append(rew)
             steps += 1
             if done or steps > self.max_path_length:
@@ -446,8 +448,9 @@ class Agent(object):
             # Hint #bl1: rescale the output from the nn_baseline to match the statistics
             # (mean and std) of the current batch of Q-values. (Goes with Hint
             # #bl2 in Agent.update_parameters.
-            raise NotImplementedError
-            b_n = None # YOUR CODE HERE
+            # YOUR CODE HERE
+            b_n = self.sess.run(self.baseline_prediction, feed_dict={self.sy_ob_no:ob_no})
+            b_n = ((b_n - b_n.mean()) / b_n.std()) * q_n.std() + q_n.mean()
             adv_n = q_n - b_n
         else:
             adv_n = q_n.copy()
@@ -518,8 +521,11 @@ class Agent(object):
             # Agent.compute_advantage.)
 
             # YOUR_CODE_HERE
-            raise NotImplementedError
-            target_n = None 
+            target_n = (q_n - q_n.mean()) / q_n.std()
+            _ = self.sess.run(self.baseline_update_op, feed_dict={
+                self.sy_ob_no:ob_no,
+                self.sy_target_n:target_n
+            })
 
         #====================================================================================#
         #                           ----------PROBLEM 3----------
