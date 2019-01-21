@@ -72,6 +72,7 @@ class Agent(object):
         self.size = computation_graph_args['size']
         self.n_layers = computation_graph_args['n_layers']
         self.learning_rate = computation_graph_args['learning_rate']
+        self.pg_step = computation_graph_args['pg_step']
 
         self.animate = sample_trajectory_args['animate']
         self.max_path_length = sample_trajectory_args['max_path_length']
@@ -539,11 +540,12 @@ class Agent(object):
         # and after an update, and then log them below. 
 
         # YOUR_CODE_HERE
-        _ = self.sess.run(self.update_op, feed_dict={
-            self.sy_ob_no:ob_no,
-            self.sy_ac_na:ac_na,
-            self.sy_adv_n:adv_n
-        })
+        for i in range(self.pg_step):
+            _ = self.sess.run(self.update_op, feed_dict={
+                self.sy_ob_no:ob_no,
+                self.sy_ac_na:ac_na,
+                self.sy_adv_n:adv_n
+            })
 
 
 def train_PG(
@@ -561,7 +563,8 @@ def train_PG(
         nn_baseline, 
         seed,
         n_layers,
-        size):
+        size,
+        pg_step):
 
     start = time.time()
 
@@ -602,6 +605,7 @@ def train_PG(
         'discrete': discrete,
         'size': size,
         'learning_rate': learning_rate,
+        'pg_step': pg_step
         }
 
     sample_trajectory_args = {
@@ -680,6 +684,7 @@ def main():
     parser.add_argument('--n_experiments', '-e', type=int, default=1)
     parser.add_argument('--n_layers', '-l', type=int, default=2)
     parser.add_argument('--size', '-s', type=int, default=64)
+    parser.add_argument('--pg_step', '-ps', type=int, default=1)
     args = parser.parse_args()
 
     if not(os.path.exists('data')):
@@ -715,7 +720,8 @@ def main():
                 nn_baseline=args.nn_baseline, 
                 seed=seed,
                 n_layers=args.n_layers,
-                size=args.size
+                size=args.size,
+                pg_step=args.pg_step
                 )
         # # Awkward hacky process runs, because Tensorflow does not like
         # # repeatedly calling train_PG in the same thread.

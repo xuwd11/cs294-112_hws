@@ -10,6 +10,7 @@
 "n_layers"	:	2,
 "nn_baseline"	:	false,
 "normalize_advantages"	:	true,
+"pg_step"	:	1,
 "reward_to_go"	:	true,
 "seed"	:	1,
 "size"	:	64}
