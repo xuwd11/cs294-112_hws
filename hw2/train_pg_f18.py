@@ -685,8 +685,11 @@ def main():
     parser.add_argument('--n_layers', '-l', type=int, default=2)
     parser.add_argument('--size', '-s', type=int, default=64)
     parser.add_argument('--pg_step', '-ps', type=int, default=1)
+    parser.add_argument('--gpu', type=int, default=0)
     args = parser.parse_args()
 
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
+    
     if not(os.path.exists('data')):
         os.makedirs('data')
     logdir = args.exp_name + '_' + args.env_name
