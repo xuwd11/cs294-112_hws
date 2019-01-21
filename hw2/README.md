@@ -8,7 +8,9 @@ To run all experiments and plot figures for the report, run
 bash run_4.sh
 bash run_5.sh
 bash run_7.sh
-bash run_81.sh
+bash run_811.sh
+bash run_812.sh
+bash run_813.sh
 bash run_82.sh
 bash run_93.sh
 ```
