@@ -1,5 +1,20 @@
 # CS294-112 HW 2: Policy Gradient
 
+## Usage
+
+To run all experiments and plot figures for the report, run
+
+```bash
+bash run_4.sh
+bash run_5.sh
+bash run_7.sh
+bash run_81.sh
+bash run_82.sh
+bash run_93.sh
+```
+
+All data would be saved in `data/`; all figures would be saved in `results/`.
+
 ## Results
 ### Problem 1
 #### 1a
