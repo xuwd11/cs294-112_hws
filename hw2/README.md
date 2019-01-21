@@ -39,6 +39,21 @@ Therefore,
   <img src="./results/p5_ip_b-1000_lr-1e-2.png" width="350"/>
 </p>
 
+### Problem 7
+
+<p float="left">
+  <img src="./results/p7.png" width="350"/>
+</p>
+
+### Bonus 3
+
+I experimented taking multiple gradient descent steps with the same batch of data on InvertedPendulum.
+
+<p float="left">
+  <img src="./results/p93.png" width="350"/>
+</p>
+
+I need to decrease the learning rate to make it work. The effect in this case is essentially increasing the learning rate (although not exactly the same from an optimization perspective).
 
 ## Original README
 
