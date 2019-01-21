@@ -81,6 +81,22 @@ $$\sum_{t=1}^{T}\mathbb{E}_{\tau\sim p_\theta(\tau)}[\nabla_\theta \log \pi_\the
   <img src="./results/p7.png" width="350"/>
 </p>
 
+### Problem 8
+
+<p float="left">
+  <img src="./results/p811.png" width="350"/>
+  <img src="./results/p812.png" width="350"/>
+  <img src="./results/p813.png" width="350"/>
+</p>
+
+Within the parameters I tested, better performance was observed for larger batch size or higher learning rate.
+
+I chose batch size of 50000 and learning rate of 0.02.
+
+<p float="left">
+  <img src="./results/p82.png" width="350"/>
+</p>
+
 ### Bonus 3
 
 I experimented taking multiple gradient descent steps with the same batch of data on InvertedPendulum.

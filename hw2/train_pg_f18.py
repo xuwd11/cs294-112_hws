@@ -18,6 +18,10 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 #============================================================================================#
 # Utilities
 #============================================================================================#
+def normalize(values, mean=0., std=1.):
+    values = (values - values.mean()) / (values.std() + 1e-8)
+    return mean + (std + 1e-8) * values
+
 
 #========================================================================================#
 #                           ----------PROBLEM 2----------
@@ -150,7 +154,8 @@ class Agent(object):
         else:
             # YOUR_CODE_HERE
             sy_mean = build_mlp(sy_ob_no, self.ac_dim, 'policy_mlp', self.n_layers, self.size)
-            sy_logstd = tf.get_variable('sy_logstd', [self.ac_dim], dtype=tf.float32, trainable=True)
+            sy_logstd = tf.get_variable('sy_logstd', [self.ac_dim])
+            #sy_logstd = tf.get_variable('sy_logstd', [self.ac_dim], dtype=tf.float32, trainable=True)
             return (sy_mean, sy_logstd)
 
     #========================================================================================#
@@ -183,7 +188,7 @@ class Agent(object):
         if self.discrete:
             sy_logits_na = policy_parameters
             # YOUR_CODE_HERE
-            sy_sampled_ac = tf.squeeze(tf.multinomial(sy_logits_na, 1, output_dtype=tf.int64), axis=1)
+            sy_sampled_ac = tf.squeeze(tf.multinomial(sy_logits_na, 1), axis=1)
         else:
             sy_mean, sy_logstd = policy_parameters
             # YOUR_CODE_HERE
@@ -320,7 +325,7 @@ class Agent(object):
             ac = self.sess.run(self.sy_sampled_ac, feed_dict={self.sy_ob_no: ob.reshape(1, -1)})
             ac = ac[0]
             acs.append(ac)
-            ob, rew, done, _ = env.step(ac.astype(int))
+            ob, rew, done, _ = env.step(ac)
             rewards.append(rew)
             steps += 1
             if done or steps > self.max_path_length:
@@ -449,7 +454,7 @@ class Agent(object):
             # #bl2 in Agent.update_parameters.
             # YOUR CODE HERE
             b_n = self.sess.run(self.baseline_prediction, feed_dict={self.sy_ob_no:ob_no})
-            b_n = ((b_n - b_n.mean()) / b_n.std()) * q_n.std() + q_n.mean()
+            b_n = normalize(b_n, q_n.mean(), q_n.std())
             adv_n = q_n - b_n
         else:
             adv_n = q_n.copy()
@@ -484,7 +489,7 @@ class Agent(object):
             # On the next line, implement a trick which is known empirically to reduce variance
             # in policy gradient methods: normalize adv_n to have mean zero and std=1.
             # YOUR_CODE_HERE
-            adv_n = (adv_n - adv_n.mean()) / adv_n.std()
+            adv_n = normalize(adv_n)
         return q_n, adv_n
 
     def update_parameters(self, ob_no, ac_na, q_n, adv_n):
@@ -520,7 +525,7 @@ class Agent(object):
             # Agent.compute_advantage.)
 
             # YOUR_CODE_HERE
-            target_n = (q_n - q_n.mean()) / q_n.std()
+            target_n = normalize(q_n)
             _ = self.sess.run(self.baseline_update_op, feed_dict={
                 self.sy_ob_no:ob_no,
                 self.sy_target_n:target_n
