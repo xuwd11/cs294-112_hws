@@ -286,11 +286,9 @@ class Agent(object):
                                     n_layers=self.n_layers,
                                     size=self.size))
             # YOUR_CODE_HERE
-            self.sy_target_n = tf.placeholder(shape=[None], name='expected_reward', dtype=tf.float32)
-            baseline_loss = tf.losses.mean_squared_error(
-                labels=self.sy_target_n,
-                predictions=self.baseline_prediction
-            )
+            self.sy_target_n = tf.placeholder(shape=[None], name='target', dtype=tf.float32)
+            # baseline_loss = tf.losses.mean_squared_error(self.sy_target_n, self.baseline_prediction)
+            baseline_loss = tf.nn.l2_loss(self.baseline_prediction - self.sy_target_n)
             self.baseline_update_op = tf.train.AdamOptimizer(self.learning_rate).minimize(baseline_loss)
 
     def sample_trajectories(self, itr, env):
