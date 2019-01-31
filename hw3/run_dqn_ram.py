@@ -1,6 +1,7 @@
 import argparse
 import gym
 from gym import wrappers
+import os
 import os.path as osp
 import random
 import numpy as np
@@ -11,6 +12,8 @@ import dqn
 from dqn_utils import *
 from atari_wrappers import *
 
+tf.logging.set_verbosity(tf.logging.ERROR)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 def atari_model(ram_in, num_actions, scope, reuse=False):
     with tf.variable_scope(scope, reuse=reuse):
@@ -94,6 +97,7 @@ def get_session():
     tf_config = tf.ConfigProto(
         inter_op_parallelism_threads=1,
         intra_op_parallelism_threads=1)
+    tf_config.gpu_options.allow_growth = True
     session = tf.Session(config=tf_config)
     print("AVAILABLE GPUS: ", get_available_gpus())
     return session
