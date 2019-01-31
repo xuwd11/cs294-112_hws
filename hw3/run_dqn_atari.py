@@ -1,6 +1,7 @@
 import argparse
 import gym
 from gym import wrappers
+import os
 import os.path as osp
 import random
 import numpy as np
@@ -11,6 +12,8 @@ import dqn
 from dqn_utils import *
 from atari_wrappers import *
 
+tf.logging.set_verbosity(tf.logging.ERROR)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 def atari_model(img_in, num_actions, scope, reuse=False):
     # as described in https://storage.googleapis.com/deepmind-data/assets/papers/DeepMindNature14236Paper.pdf
@@ -30,7 +33,12 @@ def atari_model(img_in, num_actions, scope, reuse=False):
 
 def atari_learn(env,
                 session,
+                args,
                 num_timesteps):
+    logdir = os.path.join('data', args.exp_name)
+    #if not(os.path.exists(logdir)):
+        #os.makedirs(logdir)
+    
     # This is just a rough estimate
     num_iterations = float(num_timesteps) / 4.0
 
@@ -69,13 +77,14 @@ def atari_learn(env,
         stopping_criterion=stopping_criterion,
         replay_buffer_size=1000000,
         batch_size=32,
-        gamma=0.99,
+        gamma=args.gamma,
         learning_starts=50000,
         learning_freq=4,
         frame_history_len=4,
         target_update_freq=10000,
         grad_norm_clipping=10,
-        double_q=True
+        double_q=args.double_q,
+        logdir=logdir
     )
     env.close()
 
@@ -99,6 +108,7 @@ def get_session():
     tf_config = tf.ConfigProto(
         inter_op_parallelism_threads=1,
         intra_op_parallelism_threads=1)
+    tf_config.gpu_options.allow_growth = True
     session = tf.Session(config=tf_config)
     print("AVAILABLE GPUS: ", get_available_gpus())
     return session
@@ -116,6 +126,19 @@ def get_env(task, seed):
     return env
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('exp_name', type=str)
+    parser.add_argument('--gamma', type=float, default=0.99)
+    parser.add_argument('--double_q', action='store_true')
+    parser.add_argument('--gpu', type=int, default=0)
+    args = parser.parse_args()
+    
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
+    
+    if not(os.path.exists('data')):
+        os.makedirs('data')
+    
     # Get Atari games.
     task = gym.make('PongNoFrameskip-v4')
 
@@ -124,7 +147,7 @@ def main():
     print('random seed = %d' % seed)
     env = get_env(task, seed)
     session = get_session()
-    atari_learn(env, session, num_timesteps=2e8)
+    atari_learn(env, session, args, num_timesteps=1e7)
 
 if __name__ == "__main__":
     main()

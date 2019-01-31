@@ -10,6 +10,8 @@ import tensorflow as tf
 import tensorflow.contrib.layers as layers
 from collections import namedtuple
 from dqn_utils import *
+import inspect
+import logz
 
 OptimizerSpec = namedtuple("OptimizerSpec", ["constructor", "kwargs", "lr_schedule"])
 
@@ -33,7 +35,9 @@ class QLearner(object):
         grad_norm_clipping=10,
         rew_file=None,
         double_q=True,
-        lander=False):
+        lander=False,
+        logdir=None
+    ):
         """Run Deep Q-learning algorithm.
 
         You can specify your own convnet using q_func.
@@ -86,6 +90,8 @@ class QLearner(object):
         double_q: bool
             If True, then use double Q-learning to compute target values. Otherwise, use vanilla DQN.
             https://papers.nips.cc/paper/3964-double-q-learning.pdf
+        logdir: str
+            Path to store log info
         """
         assert type(env.observation_space) == gym.spaces.Box
         assert type(env.action_space) == gym.spaces.Discrete
@@ -100,6 +106,7 @@ class QLearner(object):
         self.session = session
         self.exploration = exploration
         self.rew_file = str(uuid.uuid4()) + '.pkl' if rew_file is None else rew_file
+        self.logdir = logdir
 
         ###############
         # BUILD MODEL #
@@ -348,24 +355,36 @@ class QLearner(object):
             self.best_mean_episode_reward = max(self.best_mean_episode_reward, self.mean_episode_reward)
 
         if self.t % self.log_every_n_steps == 0 and self.model_initialized:
-            print("Timestep %d" % (self.t,))
-            print("mean reward (100 episodes) %f" % self.mean_episode_reward)
-            print("best mean reward %f" % self.best_mean_episode_reward)
-            print("episodes %d" % len(episode_rewards))
-            print("exploration %f" % self.exploration.value(self.t))
-            print("learning_rate %f" % self.optimizer_spec.lr_schedule.value(self.t))
-            if self.start_time is not None:
-                print("running time %f" % ((time.time() - self.start_time) / 60.))
-
+            #print("Timestep %d" % (self.t,))
+            #print("mean reward (100 episodes) %f" % self.mean_episode_reward)
+            #print("best mean reward %f" % self.best_mean_episode_reward)
+            #print("episodes %d" % len(episode_rewards))
+            #print("exploration %f" % self.exploration.value(self.t))
+            #print("learning_rate %f" % self.optimizer_spec.lr_schedule.value(self.t))
+            #if self.start_time is not None:
+                #print("running time %f" % ((time.time() - self.start_time) / 60.))
+            
+            logz.log_tabular('Timestep', self.t)
+            logz.log_tabular('MeanReward100Episodes', self.mean_episode_reward)
+            logz.log_tabular('BestMeanReward', self.best_mean_episode_reward)
+            logz.log_tabular('Episodes', len(episode_rewards))
+            logz.log_tabular('Exploration', self.exploration.value(self.t))
+            logz.log_tabular('LearningRate', self.optimizer_spec.lr_schedule.value(self.t))
+            logz.log_tabular('RunningTime', ((time.time() - self.start_time) / 60.))
+            logz.dump_tabular()
+            
             self.start_time = time.time()
 
             sys.stdout.flush()
 
-            with open(self.rew_file, 'wb') as f:
-                pickle.dump(episode_rewards, f, pickle.HIGHEST_PROTOCOL)
+            #with open(self.rew_file, 'wb') as f:
+                #pickle.dump(episode_rewards, f, pickle.HIGHEST_PROTOCOL)
 
 def learn(*args, **kwargs):
     alg = QLearner(*args, **kwargs)
+    logz.configure_output_dir(alg.logdir)
+    if alg.start_time is None:
+        alg.start_time = time.time()
     while not alg.stopping_criterion_met():
         alg.step_env()
         # at this point, the environment should have been advanced one step (and
@@ -373,3 +392,4 @@ def learn(*args, **kwargs):
         # observation
         alg.update_model()
         alg.log_progress()
+    
