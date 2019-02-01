@@ -179,7 +179,7 @@ class QLearner(object):
         else:
             q_temp = q_func(obs_tp1_float, self.num_actions, scope='q_func', reuse=True)
             act_temp = tf.argmax(q_temp, axis=1)
-            q_t = tf.reduce_max(tf.one_hot(act_temp, self.num_actions) * target_q, axis=1)
+            q_t = tf.reduce_sum(tf.one_hot(act_temp, self.num_actions) * target_q, axis=1)
         y = self.rew_t_ph + (1. - self.done_mask_ph) * gamma * q_t
         y_pred = tf.reduce_sum(tf.one_hot(self.act_t_ph, self.num_actions) * q, axis=1)
         self.total_error = tf.reduce_mean(huber_loss(y_pred - y))           
