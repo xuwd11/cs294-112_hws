@@ -10,6 +10,8 @@ bash run_12.sh
 bash run_13.sh
 bash run_14.sh
 python plot_part1.py
+bash run_21.sh
+bash run_22.sh
 ```
 
 ## Results
@@ -33,6 +35,19 @@ I experimented the effect of discount factor on performance.
 </p>
 
 As we can see, it takes longer to converge for small discount factor.
+
+### Part 2
+#### Question 1
+<p float="left">
+  <img src="./results/p21.png" width="350"/>
+</p>
+
+Setting both `num_grad_steps_per_target_update` and `num_target_updates` to 10 works best.
+
+#### Question 2
+<p float="left">
+  <img src="./results/p22.png" width="350"/>
+</p>
 
 ## Original README
 
