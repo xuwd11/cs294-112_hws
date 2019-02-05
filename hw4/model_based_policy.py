@@ -1,8 +1,11 @@
+import os
 import tensorflow as tf
 import numpy as np
 
 import utils
 
+tf.logging.set_verbosity(tf.logging.ERROR)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 class ModelBasedPolicy(object):
 
@@ -41,7 +44,9 @@ class ModelBasedPolicy(object):
         """
         ### PROBLEM 1
         ### YOUR CODE HERE
-        raise NotImplementedError
+        state_ph = tf.placeholder(shape=[None, self._state_dim], name='state', dtype=tf.float32)
+        action_ph = tf.placeholder(shape=[None, self._action_dim], name='action', dtype=tf.float32)
+        next_state_ph = tf.placeholder(shape=[None, self._state_dim], name='next_state', dtype=tf.float32)
 
         return state_ph, action_ph, next_state_ph
 
@@ -65,7 +70,18 @@ class ModelBasedPolicy(object):
         """
         ### PROBLEM 1
         ### YOUR CODE HERE
-        raise NotImplementedError
+        state_norm = utils.normalize(state, self._init_dataset.state_mean, self._init_dataset.state_std)
+        action_norm = utils.normalize(action, self._init_dataset.action_mean, self._init_dataset.action_std)
+        input_layer = tf.concat([state_norm, action_norm], axis=1)
+        delta_pred_norm = utils.build_mlp(
+            input_layer, 
+            self._state_dim, 
+            scope='dynamics_func',
+            n_layers=self._nn_layers,
+            reuse=reuse
+        )
+        delta_pred = utils.unnormalize(delta_pred_norm, self._init_dataset.delta_state_mean, self._init_dataset.delta_state_std)
+        next_state_pred = state + delta_pred
 
         return next_state_pred
 
@@ -89,7 +105,12 @@ class ModelBasedPolicy(object):
         """
         ### PROBLEM 1
         ### YOUR CODE HERE
-        raise NotImplementedError
+        diff = next_state_ph - state_ph
+        diff_pred = next_state_pred - state_ph
+        diff_norm = utils.normalize(diff, self._init_dataset.delta_state_mean, self._init_dataset.delta_state_std)
+        diff_pred_norm = utils.normalize(diff_pred, self._init_dataset.delta_state_mean, self._init_dataset.delta_state_std)
+        loss = tf.losses.mean_squared_error(diff_norm, diff_pred_norm)
+        optimizer = tf.train.AdamOptimizer(self._learning_rate).minimize(loss)
 
         return loss, optimizer
 
@@ -132,11 +153,15 @@ class ModelBasedPolicy(object):
 
         The variables returned will be set as class attributes (see __init__)
         """
-        sess = tf.Session()
+        tf_config = tf.ConfigProto()
+        tf_config.gpu_options.allow_growth = True
+        sess = tf.Session(config=tf_config)
 
         ### PROBLEM 1
         ### YOUR CODE HERE
-        raise NotImplementedError
+        state_ph, action_ph, next_state_ph = self._setup_placeholders()
+        next_state_pred = self._dynamics_func(state_ph, action_ph, False)
+        loss, optimizer = self._setup_training(state_ph, next_state_ph, next_state_pred)
         ### PROBLEM 2
         ### YOUR CODE HERE
         best_action = None
@@ -155,8 +180,12 @@ class ModelBasedPolicy(object):
         """
         ### PROBLEM 1
         ### YOUR CODE HERE
-        raise NotImplementedError
-
+        feed_dict = {
+            self._state_ph: states, 
+            self._action_ph: actions, 
+            self._next_state_ph: next_states
+        }
+        loss, _ = self._sess.run([self._loss, self._optimizer], feed_dict=feed_dict)
         return loss
 
     def predict(self, state, action):
@@ -174,7 +203,11 @@ class ModelBasedPolicy(object):
 
         ### PROBLEM 1
         ### YOUR CODE HERE
-        raise NotImplementedError
+        feed_dict = {
+            self._state_ph: [state], 
+            self._action_ph: [action],
+        }
+        next_state_pred = self._sess.run(self._next_state_pred, feed_dict=feed_dict)[0]
 
         assert np.shape(next_state_pred) == (self._state_dim,)
         return next_state_pred
