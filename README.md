@@ -5,3 +5,4 @@ My solution to assignments in UC Berkeley CS294-112: Deep Reinforcement Learning
 * Assignment 1: Imitation Learning ([**done**](/hw1))
 * Assignment 2: Policy Gradients ([**done**](/hw2))
 * Assignment 3: Q-Learning and Actor-Critic ([**done**](/hw3))
+* Assignment 4: Model-Based Reinforcement Learning ([**done**](/hw4))
