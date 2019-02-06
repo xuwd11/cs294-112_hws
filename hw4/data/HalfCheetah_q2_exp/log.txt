@@ -1,0 +1,31 @@
+02-05 21:00:58 HalfCheetah_q2_exp INFO     Gathering random dataset
+02-05 21:00:58 HalfCheetah_q2_exp INFO     Creating policy
+02-05 21:01:01 HalfCheetah_q2_exp INFO     Random policy
+02-05 21:01:01 HalfCheetah_q2_exp INFO     ---------  ---------
+02-05 21:01:01 HalfCheetah_q2_exp INFO     ReturnAvg  -169.525
+02-05 21:01:01 HalfCheetah_q2_exp INFO     ReturnMax  -120.76
+02-05 21:01:01 HalfCheetah_q2_exp INFO     ReturnMin  -247.403
+02-05 21:01:01 HalfCheetah_q2_exp INFO     ReturnStd    38.9955
+02-05 21:01:01 HalfCheetah_q2_exp INFO     ---------  ---------
+02-05 21:01:01 HalfCheetah_q2_exp DEBUG    
+02-05 21:01:01 HalfCheetah_q2_exp DEBUG    : total      0.0 (100.0%)
+02-05 21:01:01 HalfCheetah_q2_exp DEBUG    : other      0.0 (100.0%)
+02-05 21:01:01 HalfCheetah_q2_exp DEBUG    
+02-05 21:01:01 HalfCheetah_q2_exp INFO     Training policy....
+02-05 21:01:02 HalfCheetah_q2_exp INFO     Evaluating policy...
+02-05 21:01:30 HalfCheetah_q2_exp INFO     Trained policy
+02-05 21:01:30 HalfCheetah_q2_exp INFO     -----------------  -----------
+02-05 21:01:30 HalfCheetah_q2_exp INFO     ReturnAvg           54.1579
+02-05 21:01:30 HalfCheetah_q2_exp INFO     ReturnMax          110.639
+02-05 21:01:30 HalfCheetah_q2_exp INFO     ReturnMin           29.0879
+02-05 21:01:30 HalfCheetah_q2_exp INFO     ReturnStd           23.4211
+02-05 21:01:30 HalfCheetah_q2_exp INFO     TrainingLossFinal    0.0280622
+02-05 21:01:30 HalfCheetah_q2_exp INFO     TrainingLossStart    1.02365
+02-05 21:01:30 HalfCheetah_q2_exp INFO     -----------------  -----------
+02-05 21:01:30 HalfCheetah_q2_exp DEBUG    
+02-05 21:01:30 HalfCheetah_q2_exp DEBUG    : total      28.9 (100.0%)
+02-05 21:01:30 HalfCheetah_q2_exp DEBUG    : get action 27.5 (95.1%)
+02-05 21:01:30 HalfCheetah_q2_exp DEBUG    : train policy 0.9 (3.0%)
+02-05 21:01:30 HalfCheetah_q2_exp DEBUG    : env step   0.4 (1.5%)
+02-05 21:01:30 HalfCheetah_q2_exp DEBUG    : other      0.1 (0.3%)
+02-05 21:01:30 HalfCheetah_q2_exp DEBUG    

@@ -1,0 +1,234 @@
+02-05 21:16:38 HalfCheetah_q3_action16384 INFO     Gathering random dataset
+02-05 21:16:39 HalfCheetah_q3_action16384 INFO     Creating policy
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     Iteration -1
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     ---------  ---------
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     Itr          -1
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     ReturnAvg  -154.449
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     ReturnMax  -113.589
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     ReturnMin  -206.702
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     ReturnStd    28.2773
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     ---------  ---------
+02-05 21:16:43 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:16:43 HalfCheetah_q3_action16384 DEBUG    : total      0.0 (100.0%)
+02-05 21:16:43 HalfCheetah_q3_action16384 DEBUG    : other      0.0 (100.0%)
+02-05 21:16:43 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     Iteration 0
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:16:43 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     Itr                  0
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     ReturnAvg           60.259
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     ReturnMax          110.562
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     ReturnMin            0.21734
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     ReturnStd           32.5838
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.0288002
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     TrainingLossStart    1.03865
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:18:32 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:18:32 HalfCheetah_q3_action16384 DEBUG    : total      109.8 (100.0%)
+02-05 21:18:32 HalfCheetah_q3_action16384 DEBUG    : get action 108.0 (98.4%)
+02-05 21:18:32 HalfCheetah_q3_action16384 DEBUG    : train policy 0.9 (0.8%)
+02-05 21:18:32 HalfCheetah_q3_action16384 DEBUG    : env step   0.7 (0.7%)
+02-05 21:18:32 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:18:32 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     Iteration 1
+02-05 21:18:32 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:18:34 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     Itr                  1
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     ReturnAvg           97.2542
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     ReturnMax          163.076
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     ReturnMin           64.1302
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     ReturnStd           29.5648
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.0291805
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.0504344
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:19:52 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:19:52 HalfCheetah_q3_action16384 DEBUG    : total      79.5 (100.0%)
+02-05 21:19:52 HalfCheetah_q3_action16384 DEBUG    : get action 77.1 (96.9%)
+02-05 21:19:52 HalfCheetah_q3_action16384 DEBUG    : train policy 1.6 (2.0%)
+02-05 21:19:52 HalfCheetah_q3_action16384 DEBUG    : env step   0.7 (0.9%)
+02-05 21:19:52 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:19:52 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     Iteration 2
+02-05 21:19:52 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:19:54 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     Itr                  2
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     ReturnAvg          196.754
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     ReturnMax          275.432
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     ReturnMin          157.824
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     ReturnStd           32.0063
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.0160023
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.0300924
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:21:12 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:21:12 HalfCheetah_q3_action16384 DEBUG    : total      79.7 (100.0%)
+02-05 21:21:12 HalfCheetah_q3_action16384 DEBUG    : get action 76.4 (95.9%)
+02-05 21:21:12 HalfCheetah_q3_action16384 DEBUG    : train policy 2.4 (3.0%)
+02-05 21:21:12 HalfCheetah_q3_action16384 DEBUG    : env step   0.7 (0.9%)
+02-05 21:21:12 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:21:12 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     Iteration 3
+02-05 21:21:12 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:21:15 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     Itr                  3
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     ReturnAvg          242.581
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     ReturnMax          273.964
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     ReturnMin          179.61
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     ReturnStd           29.1832
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.0107092
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.0220847
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:22:34 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:22:34 HalfCheetah_q3_action16384 DEBUG    : total      82.3 (100.0%)
+02-05 21:22:34 HalfCheetah_q3_action16384 DEBUG    : get action 78.1 (94.9%)
+02-05 21:22:34 HalfCheetah_q3_action16384 DEBUG    : train policy 3.2 (3.9%)
+02-05 21:22:34 HalfCheetah_q3_action16384 DEBUG    : env step   0.8 (0.9%)
+02-05 21:22:34 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:22:34 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     Iteration 4
+02-05 21:22:34 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:22:38 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     Itr                  4
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     ReturnAvg          329.797
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     ReturnMax          392.411
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     ReturnMin          288.425
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     ReturnStd           32.2122
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.0122021
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.0174098
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:23:56 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:23:56 HalfCheetah_q3_action16384 DEBUG    : total      82.0 (100.0%)
+02-05 21:23:56 HalfCheetah_q3_action16384 DEBUG    : get action 77.1 (94.1%)
+02-05 21:23:56 HalfCheetah_q3_action16384 DEBUG    : train policy 4.0 (4.9%)
+02-05 21:23:56 HalfCheetah_q3_action16384 DEBUG    : env step   0.7 (0.9%)
+02-05 21:23:56 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:23:56 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     Iteration 5
+02-05 21:23:56 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:24:01 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     Itr                  5
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     ReturnAvg          314.059
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     ReturnMax          374.013
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     ReturnMin          240.433
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     ReturnStd           44.086
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.0103134
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.0125282
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     -----------------  -----------
+02-05 21:25:19 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:25:19 HalfCheetah_q3_action16384 DEBUG    : total      82.8 (100.0%)
+02-05 21:25:19 HalfCheetah_q3_action16384 DEBUG    : get action 77.1 (93.1%)
+02-05 21:25:19 HalfCheetah_q3_action16384 DEBUG    : train policy 4.8 (5.8%)
+02-05 21:25:19 HalfCheetah_q3_action16384 DEBUG    : env step   0.7 (0.9%)
+02-05 21:25:19 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:25:19 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     Iteration 6
+02-05 21:25:19 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:25:25 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     Itr                  6
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     ReturnAvg          385.104
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     ReturnMax          432.407
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     ReturnMin          312.127
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     ReturnStd           30.6358
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.00891565
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.0117116
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:26:43 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:26:43 HalfCheetah_q3_action16384 DEBUG    : total      83.8 (100.0%)
+02-05 21:26:43 HalfCheetah_q3_action16384 DEBUG    : get action 77.1 (92.0%)
+02-05 21:26:43 HalfCheetah_q3_action16384 DEBUG    : train policy 5.8 (6.9%)
+02-05 21:26:43 HalfCheetah_q3_action16384 DEBUG    : env step   0.7 (0.9%)
+02-05 21:26:43 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:26:43 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     Iteration 7
+02-05 21:26:43 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:26:49 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     Itr                  7
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     ReturnAvg          363.161
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     ReturnMax          461.029
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     ReturnMin          297.374
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     ReturnStd           53.9457
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.0084487
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.00879555
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:28:07 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:28:07 HalfCheetah_q3_action16384 DEBUG    : total      84.5 (100.0%)
+02-05 21:28:07 HalfCheetah_q3_action16384 DEBUG    : get action 77.1 (91.2%)
+02-05 21:28:07 HalfCheetah_q3_action16384 DEBUG    : train policy 6.6 (7.8%)
+02-05 21:28:07 HalfCheetah_q3_action16384 DEBUG    : env step   0.7 (0.9%)
+02-05 21:28:07 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:28:07 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     Iteration 8
+02-05 21:28:07 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:28:15 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     Itr                  8
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     ReturnAvg          337.036
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     ReturnMax          404.496
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     ReturnMin          270.345
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     ReturnStd           38.0283
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.00675693
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.0082162
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:29:33 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:29:33 HalfCheetah_q3_action16384 DEBUG    : total      85.9 (100.0%)
+02-05 21:29:33 HalfCheetah_q3_action16384 DEBUG    : get action 77.5 (90.3%)
+02-05 21:29:33 HalfCheetah_q3_action16384 DEBUG    : train policy 7.5 (8.7%)
+02-05 21:29:33 HalfCheetah_q3_action16384 DEBUG    : env step   0.7 (0.9%)
+02-05 21:29:33 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:29:33 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     Iteration 9
+02-05 21:29:33 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:29:41 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     Itr                  9
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     ReturnAvg          415.794
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     ReturnMax          509.768
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     ReturnMin          349.995
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     ReturnStd           40.1753
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.00861639
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.00660174
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:31:00 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:31:00 HalfCheetah_q3_action16384 DEBUG    : total      86.7 (100.0%)
+02-05 21:31:00 HalfCheetah_q3_action16384 DEBUG    : get action 77.5 (89.4%)
+02-05 21:31:00 HalfCheetah_q3_action16384 DEBUG    : train policy 8.3 (9.5%)
+02-05 21:31:00 HalfCheetah_q3_action16384 DEBUG    : env step   0.8 (0.9%)
+02-05 21:31:00 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:31:00 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     Iteration 10
+02-05 21:31:00 HalfCheetah_q3_action16384 INFO     Training policy...
+02-05 21:31:09 HalfCheetah_q3_action16384 INFO     Gathering rollouts...
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     Appending dataset...
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     Itr                 10
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     ReturnAvg          437.192
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     ReturnMax          534.147
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     ReturnMin          369.698
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     ReturnStd           40.8975
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     TrainingLossFinal    0.00613161
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     TrainingLossStart    0.00730747
+02-05 21:32:28 HalfCheetah_q3_action16384 INFO     -----------------  ------------
+02-05 21:32:28 HalfCheetah_q3_action16384 DEBUG    
+02-05 21:32:28 HalfCheetah_q3_action16384 DEBUG    : total      88.6 (100.0%)
+02-05 21:32:28 HalfCheetah_q3_action16384 DEBUG    : get action 78.4 (88.5%)
+02-05 21:32:28 HalfCheetah_q3_action16384 DEBUG    : train policy 9.3 (10.5%)
+02-05 21:32:28 HalfCheetah_q3_action16384 DEBUG    : env step   0.8 (0.8%)
+02-05 21:32:28 HalfCheetah_q3_action16384 DEBUG    : other      0.2 (0.2%)
+02-05 21:32:28 HalfCheetah_q3_action16384 DEBUG    
