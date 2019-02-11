@@ -105,8 +105,7 @@ class RBF(Density_Model):
                 self.means: np array (B, ob_dim)
         """
         B, ob_dim = len(data), len(data[0])
-        raise NotImplementedError
-        self.means = None
+        self.means = np.array(data)
         assert self.means.shape == (B, ob_dim)
 
     def get_prob(self, states):
@@ -145,19 +144,19 @@ class RBF(Density_Model):
             assert states.ndim == self.means.ndim and ob_dim == replay_dim
 
             # 1. Compute deltas
-            #deltas = raise NotImplementedError
+            deltas = np.expand_dims(states, axis=1) - np.expand_dims(self.means, axis=0)
             assert deltas.shape == (b, B, ob_dim)
 
             # 2. Euclidean distance
-            #euc_dists = raise NotImplementedError
+            euc_dists = np.sum(np.square(deltas), axis=-1)
             assert euc_dists.shape == (b, B)
 
             # Gaussian
-            #gaussians = raise NotImplementedError
+            gaussians = np.exp(- euc_dists / 2 / self.sigma ** 2)
             assert gaussians.shape == (b, B)
 
             # 4. Average
-            #densities = raise NotImplementedError
+            densities = np.mean(gaussians, axis=-1)
             assert densities.shape == (b,)
 
             return densities
