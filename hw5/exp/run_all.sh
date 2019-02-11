@@ -21,7 +21,9 @@ python plot.py data/ac_PM_bc0_s8_PointMass-v0 data/ac_PM_rbf_bc0.01_s8_sig0.2_Po
 ###  P3 EX2 PointMass  ###
 ##########################
 
+rm -rf data/ac_PM_ex2_s8_bc0.05_kl0.1_dlr0.001_dh8_dti1000_PointMass-v0
 python train_ac_exploration_f18.py PointMass-v0 -n 100 -b 1000 -e 3 --density_model ex2 -s 8 -bc 0.05 -kl 0.1 -dlr 0.001 -dh 8 -dti 1000 --exp_name PM_ex2_s8_bc0.05_kl0.1_dlr0.001_dh8_dti1000
+python plot.py data/ac_PM_bc0_s8_PointMass-v0 data/ac_PM_ex2_s8_bc0.05_kl0.1_dlr0.001_dh8_dti1000_PointMass-v0 --legend PM_bc0_s8 PM_ex2_s8_bc0.05 --save_name p3
 
 ###########################
 ###    P4 HalfCheetah   ###
