@@ -17,9 +17,13 @@ from multiprocessing import Process
 from exploration import ExemplarExploration, DiscreteExploration, RBFExploration
 from density_model import Exemplar, Histogram, RBF
 
+tf.logging.set_verbosity(tf.logging.ERROR)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 #============================================================================================#
 # Utilities
 #============================================================================================#
+
 
 def build_mlp(input_placeholder, output_size, scope, n_layers, size, activation=tf.tanh, output_activation=None):
     """
@@ -540,14 +544,14 @@ def train_AC(
             elif dm == 'hist' or dm == 'rbf':
                 ### PROBLEM 1
                 ### YOUR CODE HERE
-                raise NotImplementedError
+                exploration.fit_density_model(ob_no)
             else:
                 assert False
 
             # 2. Modify the reward
             ### PROBLEM 1
             ### YOUR CODE HERE
-            raise NotImplementedError
+            re_n = exploration.modify_reward(old_re_n, ob_no)
 
             print('average state', np.mean(ob_no, axis=0))
             print('average action', np.mean(ac_na, axis=0))
@@ -629,7 +633,7 @@ def main():
 
     if not (os.path.exists(data_path)):
         os.makedirs(data_path)
-    logdir = 'ac_' + args.exp_name + '_' + args.env_name + '_' + time.strftime("%d-%m-%Y_%H-%M-%S")
+    logdir = 'ac_' + args.exp_name + '_' + args.env_name# + '_' + time.strftime("%d-%m-%Y_%H-%M-%S")
     logdir = os.path.join(data_path, logdir)
     if not(os.path.exists(logdir)):
         os.makedirs(logdir)

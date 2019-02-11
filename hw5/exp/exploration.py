@@ -40,9 +40,8 @@ class Exploration(object):
                 bonus and then modify the rewards with the bonus
                 and store that in new_rewards, which you will return
         """
-        raise NotImplementedError
-        bonus = None
-        new_rewards = None
+        bonus = self.compute_reward_bonus(states)
+        new_rewards = rewards + self.bonus_coeff * bonus
         return new_rewards
 
 class DiscreteExploration(Exploration):
@@ -57,7 +56,8 @@ class DiscreteExploration(Exploration):
             args:
                 states: (bsize, ob_dim)
         """
-        raise NotImplementedError
+        for state in states:
+            self.density_model.update_count(state, 1)
 
     def bonus_function(self, count):
         """
@@ -67,7 +67,7 @@ class DiscreteExploration(Exploration):
             args:
                 count: np array (bsize)
         """
-        raise NotImplementedError
+        return np.power(count, -0.5)
 
     def compute_reward_bonus(self, states):
         """
@@ -77,8 +77,8 @@ class DiscreteExploration(Exploration):
             args:
                 states: (bsize, ob_dim)
         """
-        count = raise NotImplementedError
-        bonus = raise NotImplementedError
+        count = self.density_model.get_count(states)
+        bonus = self.bonus_function(count)
         return bonus
 
 

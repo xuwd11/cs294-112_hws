@@ -13,4 +13,4 @@ Before doing anything, first replace `gym/envs/mujoco/half_cheetah.py` with the 
 You will implement `density_model.py`, `exploration.py`, and `train_ac_exploration_f18.py`.
 
 See the hw5a.pdf in this folder for further instructions.
-<!--See the [HW5 PDF](http://rail.eecs.berkeley.edu/deeprlcourse/static/homeworks/hw5a.pdf) for further instructions-->.
+<!--See the [HW5 PDF](hw5a_instructions.pdf) for further instructions-->.
