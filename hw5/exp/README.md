@@ -1,5 +1,43 @@
 # CS294-112 HW 5a: Exploration
 
+## Usage
+
+To run all experiments and plot figures for the report, run
+
+```bash
+bash run_all.sh
+```
+
+## Results
+### Problem 1
+#### (a)
+<p float="left">
+  <img src="./results/p1.png" width="350"/>
+</p>
+
+### Problem 2
+#### (a)
+<p float="left">
+  <img src="./results/p2.png" width="350"/>
+</p>
+
+### Problem 3
+#### (a)
+<p float="left">
+  <img src="./results/p3.png" width="350"/>
+</p>
+
+### Problem 4
+#### (a)
+<p float="left">
+  <img src="./results/p4.png" width="350"/>
+</p>
+#### (b)
+Surprisingly, 3 curves are very similar. The baseline model without exploration has already achieved good performance, and EX2-based exploration cannot further improve the performance in this case.
+
+
+## Original README
+
 Dependencies:
  * Python **3.5**
  * Numpy version **1.14.5**

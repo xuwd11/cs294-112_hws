@@ -234,9 +234,8 @@ class Exemplar(Density_Model):
             Hint: use build_mlp
         """
         z_mean = build_mlp(state, z_size, scope, n_layers, hid_size)
-        with tf.variable_scope(scope):
-            z_logstd = tf.get_variable('z_logstd', shape=z_size, trainable=True, 
-                                       initializer=tf.constant_initializer(value=0.))
+        z_logstd = tf.get_variable('z_logstd', shape=z_size, trainable=True,
+                                   initializer=tf.constant_initializer(value=0.))
         return tfp.distributions.MultivariateNormalDiag(loc=z_mean, scale_diag=tf.exp(z_logstd))
 
     def make_prior(self, z_size):
