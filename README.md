@@ -8,3 +8,4 @@ My solution to assignments in UC Berkeley CS294-112: Deep Reinforcement Learning
 * Assignment 4: Model-Based Reinforcement Learning ([**done**](/hw4))
 * Assignment 5
   * HW5a: Exploration ([**done**](/hw5/exp))
+  * HW5b: Soft Actor-Critic ([**done**](/hw5/sac))
