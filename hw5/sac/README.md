@@ -42,7 +42,7 @@ I chose the value function as the baseline, since the state dependent value func
     <tr>
       <td style="text-align: center"><strong>Family of distribution</strong></td>
       <td style="text-align: center">Works for a large class of distributions of x</td>
-      <td style="text-align: center">It should be possible to reparameterize x as done above</td>
+      <td style="text-align: center">It should be possible to reparameterize x</td>
     </tr>
   </tbody>
 </table>
