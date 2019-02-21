@@ -1,0 +1,40 @@
+{
+  "algorithm_params": {
+    "alpha": 0.2,
+    "batch_size": 256,
+    "discount": 0.99,
+    "epoch_length": 1000,
+    "learning_rate": 0.001,
+    "n_epochs": 500,
+    "reparameterize": false,
+    "tau": 0.01,
+    "two_qf": false
+  },
+  "env_name": "HalfCheetah-v2",
+  "exp_name": "reinf",
+  "policy_params": {
+    "hidden_layer_sizes": [
+      128,
+      128
+    ]
+  },
+  "q_function_params": {
+    "hidden_layer_sizes": [
+      128,
+      128
+    ]
+  },
+  "replay_pool_params": {
+    "max_size": 1000000.0
+  },
+  "sampler_params": {
+    "max_episode_length": 1000,
+    "prefill_steps": 1000
+  },
+  "value_function_params": {
+    "hidden_layer_sizes": [
+      128,
+      128
+    ]
+  }
+}

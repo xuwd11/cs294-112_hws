@@ -82,7 +82,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('logdir', nargs='*')
     parser.add_argument('--legend', nargs='*')
-    parser.add_argument('--value', default='AverageReturn', nargs='*')
+    parser.add_argument('--value', default='LastEpReturn', nargs='*')
     parser.add_argument('--save_name', type=str, default='results')
     args = parser.parse_args()
     

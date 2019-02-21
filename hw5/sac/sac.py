@@ -106,7 +106,6 @@ class SAC:
         if not self._reparameterize:
             ### Problem 1.3.A
             ### YOUR CODE HERE
-            q_function((self._observations_ph, self._actions_ph))
             actions, log_pis = policy(self._observations_ph)
             if q_function2 is None:
                 q_n = tf.squeeze(q_function((self._observations_ph, actions)), axis=1)

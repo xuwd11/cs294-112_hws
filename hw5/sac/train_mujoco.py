@@ -15,7 +15,9 @@ from multiprocessing import Process
 tf.logging.set_verbosity(tf.logging.ERROR)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-def train_SAC(env_name, exp_name, seed, logdir):
+def train_SAC(args, seed, logdir):
+    env_name=args.env_name
+    exp_name=args.exp_name
     alpha = {
         'Ant-v2': 0.1,
         'HalfCheetah-v2': 0.2,
@@ -29,11 +31,11 @@ def train_SAC(env_name, exp_name, seed, logdir):
         'batch_size': 256,
         'discount': 0.99,
         'learning_rate': 1e-3,
-        'reparameterize': False,
+        'reparameterize': args.reparam,
         'tau': 0.01,
         'epoch_length': 1000,
         'n_epochs': 500,
-        'two_qf': False,
+        'two_qf': args.two_qf,
     }
     sampler_params = {
         'max_episode_length': 1000,
@@ -125,8 +127,13 @@ def main():
     parser.add_argument('--exp_name', type=str, default=None)
     parser.add_argument('--seed', type=int, default=1)
     parser.add_argument('--n_experiments', '-e', type=int, default=1)
+    parser.add_argument('--reparam', action='store_true')
+    parser.add_argument('--two_qf', action='store_true')
+    parser.add_argument('--gpu', type=int, default=0)
     args = parser.parse_args()
 
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
+    
     data_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data')
 
     if not (os.path.exists(data_path)):
@@ -142,8 +149,7 @@ def main():
 
         def train_func():
             train_SAC(
-                env_name=args.env_name,
-                exp_name=args.exp_name,
+                args,
                 seed=seed,
                 logdir=os.path.join(logdir, '%d' % seed),
             )
