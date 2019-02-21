@@ -12,6 +12,9 @@ import utils
 
 from multiprocessing import Process
 
+tf.logging.set_verbosity(tf.logging.ERROR)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 def train_SAC(env_name, exp_name, seed, logdir):
     alpha = {
         'Ant-v2': 0.1,
@@ -128,7 +131,7 @@ def main():
 
     if not (os.path.exists(data_path)):
         os.makedirs(data_path)
-    logdir = 'sac_' + args.env_name + '_' + args.exp_name + '_' + time.strftime("%d-%m-%Y_%H-%M-%S")
+    logdir = 'sac_' + args.env_name + '_' + args.exp_name# + '_' + time.strftime("%d-%m-%Y_%H-%M-%S")
     logdir = os.path.join(data_path, logdir)
 
     processes = []

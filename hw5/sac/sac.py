@@ -47,7 +47,7 @@ class SAC:
                                                     target_value_function)
         if q_function2 is not None:
             q_function2_loss = self._q_function_loss_for(q_function2,
-                                                        target_value_function)
+                                                         target_value_function)
 
         optimizer = tf.train.AdamOptimizer(
             self._learning_rate, name='optimizer')
@@ -106,21 +106,61 @@ class SAC:
         if not self._reparameterize:
             ### Problem 1.3.A
             ### YOUR CODE HERE
-            raise NotImplementedError
+            q_function((self._observations_ph, self._actions_ph))
+            actions, log_pis = policy(self._observations_ph)
+            if q_function2 is None:
+                q_n = tf.squeeze(q_function((self._observations_ph, actions)), axis=1)
+            else:
+                q_n = tf.minimum(
+                    tf.squeeze(q_function((self._observations_ph, actions)), axis=1),
+                    tf.squeeze(q_function2((self._observations_ph, actions)), axis=1)
+                )                
+            b_n = tf.squeeze(value_function(self._observations_ph), axis=1)
+            policy_loss = tf.reduce_mean(log_pis * tf.stop_gradient(self._alpha * log_pis - q_n + b_n))
         else:
             ### Problem 1.3.B
             ### YOUR CODE HERE
-            raise NotImplementedError
+            actions, log_pis = policy(self._observations_ph)
+            if q_function2 is None:
+                q_n = tf.squeeze(q_function((self._observations_ph, actions)), axis=1)
+            else:
+                q_n = tf.minimum(
+                    tf.squeeze(q_function((self._observations_ph, actions)), axis=1),
+                    tf.squeeze(q_function2((self._observations_ph, actions)), axis=1)
+                )
+            b_n = tf.squeeze(value_function(self._observations_ph), axis=1)
+            policy_loss = tf.reduce_mean(self._alpha * log_pis - q_n)
+        return policy_loss
 
     def _value_function_loss_for(self, policy, q_function, q_function2, value_function):
         ### Problem 1.2.A
         ### YOUR CODE HERE
-        raise NotImplementedError
+        actions, log_pis = policy(self._observations_ph)
+        if q_function2 is None:
+            q_n = tf.squeeze(q_function((self._observations_ph, actions)), axis=1)
+        else:
+            q_n = tf.minimum(
+                tf.squeeze(q_function((self._observations_ph, actions)), axis=1),
+                tf.squeeze(q_function2((self._observations_ph, actions)), axis=1)
+            )
+        v_n = tf.squeeze(value_function(self._observations_ph), axis=1)
+        value_function_loss = tf.losses.mean_squared_error(
+            q_n - self._alpha * log_pis,
+            v_n
+        )
+        return value_function_loss
 
     def _q_function_loss_for(self, q_function, target_value_function):
         ### Problem 1.1.A
         ### YOUR CODE HERE
-        raise NotImplementedError
+        q_n = tf.squeeze(q_function((self._observations_ph, self._actions_ph)), axis=1)
+        next_v_n = tf.squeeze(target_value_function(self._next_observations_ph), axis=1)
+        q_function_loss = tf.losses.mean_squared_error(
+            self._rewards_ph + (1 - self._terminals_ph) * self._discount * next_v_n,
+            q_n
+        )
+        return q_function_loss
+        
 
     def _create_target_update(self, source, target):
         """Create tensorflow operations for updating target value function."""
