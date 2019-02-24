@@ -78,6 +78,11 @@ def build_rnn(x, h, output_size, scope, n_layers, size, activation=tf.tanh, outp
     #                           ----------PROBLEM 2----------
     #====================================================================================#
     # YOUR CODE HERE
+    x = build_mlp(x, output_size, scope, n_layers, size, activation, activation, regularizer)
+    gru = tf.keras.layers.GRU(output_size, activation=activation, return_sequences=False, return_state=True)
+    x, h = gru(x, h)
+    return x, h
+    
 
 def build_policy(x, h, output_size, scope, n_layers, size, gru_size, recurrent=True, activation=tf.tanh, output_activation=None):
     """
@@ -582,6 +587,7 @@ class Agent(object):
 
 
 def train_PG(
+        args,
         exp_name,
         env_name,
         n_iter,
@@ -658,6 +664,8 @@ def train_PG(
         'animate': animate,
         'max_path_length': max_path_length,
         'min_timesteps_per_batch': min_timesteps_per_batch,
+        'grain_size': args.grain_size,
+        'show_train': args.show_train
     }
 
     estimate_return_args = {
@@ -793,6 +801,8 @@ def main():
     parser.add_argument('--history', '-ho', type=int, default=1)
     parser.add_argument('--l2reg', '-reg', action='store_true')
     parser.add_argument('--recurrent', '-rec', action='store_true')
+    parser.add_argument('--grain_size', '-gs', type=int, default=1)
+    parser.add_argument('--show_train', '-st', action='store_true')
     parser.add_argument('--gpu', type=int, default=0)
     args = parser.parse_args()
     
@@ -815,6 +825,7 @@ def main():
 
         def train_func():
             train_PG(
+                args,
                 exp_name=args.exp_name,
                 env_name=args.env_name,
                 n_iter=args.n_iter,
