@@ -9,13 +9,13 @@ class PointEnv(Env):
     goals are sampled randomly from a square
     """
 
-    def __init__(self, num_tasks=1):
-        self.reset_task()
+    def __init__(self, num_tasks=1, grain_size=None):
+        self.reset_task(grain_size=grain_size)
         self.reset()
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(2,))
         self.action_space = spaces.Box(low=-0.1, high=0.1, shape=(2,))
 
-    def reset_task(self, is_evaluation=False):
+    def reset_task(self, is_evaluation=False, show_train=False, grain_size=None):
         '''
         sample a new task randomly
 
@@ -27,8 +27,14 @@ class PointEnv(Env):
         #                           ----------PROBLEM 3----------
         #====================================================================================#
         # YOUR CODE HERE
-        x = np.random.uniform(-10, 10)
-        y = np.random.uniform(-10, 10)
+        if (not is_evaluation) or show_train:
+            x0 = np.random.choice(np.arange(-10, 10, grain_size))
+            y0 = np.random.choice(np.arange(-10 + grain_size * (x0 // grain_size % 2), 10, grain_size * 2))
+        else:
+            x0 = np.random.choice(np.arange(-10, 10, grain_size))
+            y0 = np.random.choice(np.arange(-10 + grain_size * ((x0 // grain_size + 1) % 2), 10, grain_size * 2))
+        x = np.random.uniform(x0, x0 + grain_size)
+        y = np.random.uniform(y0, y0 + grain_size)
         self._goal = np.array([x, y])
 
     def reset(self):

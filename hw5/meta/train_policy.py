@@ -176,6 +176,8 @@ class Agent(object):
         self.animate = sample_trajectory_args['animate']
         self.max_path_length = sample_trajectory_args['max_path_length']
         self.min_timesteps_per_batch = sample_trajectory_args['min_timesteps_per_batch']
+        self.grain_size = sample_trajectory_args['grain_size']
+        self.show_train = sample_trajectory_args['show_train']
 
         self.gamma = estimate_return_args['gamma']
         self.nn_critic = estimate_return_args['nn_critic']
@@ -363,7 +365,7 @@ class Agent(object):
             animate_this_episode: if True then render
             val: whether this is training or evaluation
         """
-        env.reset_task(is_evaluation=is_evaluation)
+        env.reset_task(is_evaluation=is_evaluation, show_train=self.show_train, grain_size=self.grain_size)
         stats = []
         #====================================================================================#
         #                           ----------PROBLEM 1----------
@@ -587,7 +589,6 @@ class Agent(object):
 
 
 def train_PG(
-        args,
         exp_name,
         env_name,
         n_iter,
@@ -610,6 +611,8 @@ def train_PG(
         num_tasks,
         l2reg,
         recurrent,
+        grain_size,
+        show_train
         ):
 
     start = time.time()
@@ -627,7 +630,7 @@ def train_PG(
     envs = {'pm': PointEnv,
             'pm-obs': ObservedPointEnv,
             }
-    env = envs[env_name](num_tasks)
+    env = envs[env_name](num_tasks, grain_size=grain_size)
 
     # Set random seeds
     tf.set_random_seed(seed)
@@ -664,8 +667,8 @@ def train_PG(
         'animate': animate,
         'max_path_length': max_path_length,
         'min_timesteps_per_batch': min_timesteps_per_batch,
-        'grain_size': args.grain_size,
-        'show_train': args.show_train
+        'grain_size': grain_size,
+        'show_train': show_train
     }
 
     estimate_return_args = {
@@ -741,6 +744,8 @@ def train_PG(
 
         # compute validation statistics
         print('Validating...')
+        if show_train:
+            print('(on training set)')
         val_stats = []
         for _ in range(num_tasks):
             vs, timesteps_this_batch = agent.sample_trajectories(itr, env, min_timesteps_per_batch // 10, is_evaluation=True)
@@ -825,7 +830,6 @@ def main():
 
         def train_func():
             train_PG(
-                args,
                 exp_name=args.exp_name,
                 env_name=args.env_name,
                 n_iter=args.n_iter,
@@ -848,6 +852,8 @@ def main():
                 num_tasks=args.num_tasks,
                 l2reg=args.l2reg,
                 recurrent=args.recurrent,
+                grain_size=args.grain_size,
+                show_train=args.show_train
                 )
         # # Awkward hacky process runs, because Tensorflow does not like
         # # repeatedly calling train_PG in the same thread.
