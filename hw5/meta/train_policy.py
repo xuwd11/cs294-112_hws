@@ -23,6 +23,9 @@ from replay_buffer import ReplayBuffer, PPOReplayBuffer
 from point_mass import PointEnv
 from point_mass_observed import ObservedPointEnv
 
+tf.logging.set_verbosity(tf.logging.ERROR)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 #============================================================================================#
 # Utilities
 #============================================================================================#
@@ -377,26 +380,28 @@ class Agent(object):
                 # first meta ob has only the observation
                 # set a, r, d to zero, construct first meta observation in meta_obs
                 # YOUR CODE HERE
-
+                meta_obs[self.history + ep_steps - 1, :self.ob_dim] = ob
                 steps += 1
 
             # index into the meta_obs array to get the window that ends with the current timestep
             # please name the windowed observation `in_` for compatibilty with the code that adds to the replay buffer (lines 418, 420)
             # YOUR CODE HERE
-
+            in_ = meta_obs[ep_steps:self.history + ep_steps]
             hidden = np.zeros((1, self.gru_size), dtype=np.float32)
 
             # get action from the policy
             # YOUR CODE HERE
-
+            ac = self.sess.run(self.sy_sampled_ac, feed_dict={self.sy_ob_no:[in_], self.sy_hidden:hidden})[0]
+            
             # step the environment
             # YOUR CODE HERE
-
+            next_ob, rew, done, _ = env.step(ac)
             ep_steps += 1
 
             done = bool(done) or ep_steps == self.max_path_length
             # construct the meta-observation and add it to meta_obs
             # YOUR CODE HERE
+            meta_obs[self.history + ep_steps - 1] = np.concatenate((next_ob, ac, [rew], [done]))
 
             rewards.append(rew)
             steps += 1
@@ -734,9 +739,9 @@ def train_PG(
             val_stats += vs
 
         # save trajectories for viz
-        with open("output/{}-epoch{}.pkl".format(exp_name, itr), 'wb') as f:
-            pickle.dump(agent.val_replay_buffer.all_batch(), f, pickle.HIGHEST_PROTOCOL)
-        agent.val_replay_buffer.flush()
+        #with open("output/{}-epoch{}.pkl".format(exp_name, itr), 'wb') as f:
+            #pickle.dump(agent.val_replay_buffer.all_batch(), f, pickle.HIGHEST_PROTOCOL)
+        #agent.val_replay_buffer.flush()
 
         # Log TRAIN diagnostics
         returns = [sum(s["rewards"]) for s in stats]
@@ -788,11 +793,14 @@ def main():
     parser.add_argument('--history', '-ho', type=int, default=1)
     parser.add_argument('--l2reg', '-reg', action='store_true')
     parser.add_argument('--recurrent', '-rec', action='store_true')
+    parser.add_argument('--gpu', type=int, default=0)
     args = parser.parse_args()
+    
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
 
     if not(os.path.exists('data')):
         os.makedirs('data')
-    logdir = args.exp_name + '_' + args.env_name + '_' + time.strftime("%d-%m-%Y_%H-%M-%S")
+    logdir = args.env_name + '_' + args.exp_name# + '_' + time.strftime("%d-%m-%Y_%H-%M-%S")
     logdir = os.path.join('data', logdir)
     if not(os.path.exists(logdir)):
         os.makedirs(logdir)
