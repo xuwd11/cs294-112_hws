@@ -20,7 +20,7 @@ class PointEnv(Env):
         sample a new task randomly
 
         Problem 3: make training and evaluation goals disjoint sets
-        if `is_evaluation` is true, sample from the evaluation set,
+        if `is_evaluation` is true and `show_train` is false, sample from the evaluation set,
         otherwise sample from the training set
         '''
         #====================================================================================#
