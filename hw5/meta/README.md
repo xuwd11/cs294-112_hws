@@ -25,7 +25,7 @@ bash run_32.sh
   <img src="./results/p2_mlp.png" width="350"/>
   <img src="./results/p2_gru.png" width="350"/>
 </p>
-The feed-forward architectures fail to achieve good performance in all cases. For recurrent architectures, the cases where history length is no less than 15 achieve similar performance, and significantly outperform history length of 1.
+The feed-forward architectures fail to achieve good performance in all cases. For the recurrent architectures, the cases where history length is no less than 15 achieve similar performance, and significantly outperform history length of 1.
 
 <p float="left">
   <img src="./results/p2_1.png" width="350"/>
