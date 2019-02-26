@@ -37,6 +37,17 @@ The feed-forward architectures fail to achieve good performance in all cases. Fo
 </p>
 The recurrent architectures outperform the feed-forward architectures in all cases.
 
+### 5.3 Problem 3
+<p float="left">
+  <img src="./results/p3_1.png" width="350"/>
+  <img src="./results/p3_5.png" width="350"/>
+  <img src="./results/p3_10.png" width="350"/>
+</p>
+<p float="left">
+  <img src="./results/p3_train.png" width="350"/>
+  <img src="./results/p3_test.png" width="350"/>
+</p>
+
 ## Original README
 Dependencies:
  * Python **3.5**

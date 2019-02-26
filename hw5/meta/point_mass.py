@@ -15,7 +15,7 @@ class PointEnv(Env):
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(2,))
         self.action_space = spaces.Box(low=-0.1, high=0.1, shape=(2,))
 
-    def reset_task(self, is_evaluation=False, show_train=False, grain_size=None):
+    def reset_task(self, is_evaluation=False, grain_size=None):
         '''
         sample a new task randomly
 
@@ -27,7 +27,7 @@ class PointEnv(Env):
         #                           ----------PROBLEM 3----------
         #====================================================================================#
         # YOUR CODE HERE
-        if (not is_evaluation) or show_train:
+        if (not is_evaluation):
             x0 = np.random.choice(np.arange(-10, 10, grain_size))
             y0 = np.random.choice(np.arange(-10 + grain_size * (x0 // grain_size % 2), 10, grain_size * 2))
         else:
