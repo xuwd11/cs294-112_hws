@@ -4,7 +4,7 @@
 "gamma"	:	0.9,
 "grain_size"	:	1,
 "gru_size"	:	32,
-"history"	:	1,
+"history"	:	45,
 "l2reg"	:	false,
 "learning_rate"	:	0.0005,
 "logdir"	:	"data/pm_mlp_h-45_gs-1/11",
