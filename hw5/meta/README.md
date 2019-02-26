@@ -12,7 +12,6 @@ bash run_24.sh
 bash run_25.sh
 bash run_31.sh
 bash run_32.sh
-bash run_33.sh
 ```
 
 ## Results
@@ -43,10 +42,13 @@ The recurrent architectures outperform the feed-forward architectures in all cas
   <img src="./results/p3_5.png" width="350"/>
   <img src="./results/p3_10.png" width="350"/>
 </p>
+The policy performs similarly on training goals and testing goals for the grain size of 1 and 5. The algorithm overfits when I increase the grain size to 10, when the testing distribution deviates a lot from the training distribution.
+
 <p float="left">
   <img src="./results/p3_train.png" width="350"/>
   <img src="./results/p3_test.png" width="350"/>
 </p>
+The performance on training goals is improved significantly when the grain size is 10, presumably because the decrease in the number of possible directions in the training goals makes it easier for the algorithm to learn a good policy. However, the testing performance is much worse since the directions in the testing goals differ a lot from those in the training goals.
 
 ## Original README
 Dependencies:
