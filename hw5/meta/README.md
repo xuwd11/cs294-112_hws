@@ -42,7 +42,7 @@ The recurrent architectures outperform the feed-forward architectures in all cas
   <img src="./results/p3_5.png" width="350"/>
   <img src="./results/p3_10.png" width="350"/>
 </p>
-The policy performs similarly on training goals and testing goals for the grain size of 1 and 5. The algorithm overfits when I increase the grain size to 10, when the testing distribution deviates a lot from the training distribution.
+The policy performs similarly on training goals and testing goals for the grain size of 1 and 5. The algorithm overfits when I increase the grain size to 10, presumably because the testing distribution deviates a lot from the training distribution.
 
 <p float="left">
   <img src="./results/p3_train.png" width="350"/>
